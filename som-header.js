@@ -97,13 +97,17 @@ function controlledCheckbox(qids){
 
 //2022updateResponsiveInputs.js
 function updateResponsiveInputs(){
-    let desktopInput = $("input[type='text'].responsiveMatrixWeb"), 
+    let desktopInput = $("input[type='text'].responsiveMatrixWeb"),
     mobileInput = $("input[type='text'].responsiveMatrixCell");
 $("input[type='text'].responsiveInput").on("input", function(){
-    isMobile.matches ? desktopInput.val(mobileInput.val()):mobileInput.val(desktopInput.val());
+    isMobile.matches ? 
+    desktopInput.val(mobileInput.val())
+    :mobileInput.val(desktopInput.val());
     });
 $(".responsiveInput").on("change", function(){
-    isMobile.matches ? desktopInput.val(mobileInput.val()):mobileInput.val(desktopInput.val());
+    isMobile.matches ? 
+    desktopInput.val(mobileInput.val())
+    :mobileInput.val(desktopInput.val());
     });
 }
 //END 2022updateResponsiveInputs.js
