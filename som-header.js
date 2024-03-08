@@ -107,15 +107,3 @@ $(".responsiveInput").on("change", function(){
     });
 }
 //END 2022updateResponsiveInputs.js
-
-//Denna funktion klistras in mellan script-taggar sist under Scripts/CSS
-//Rensar bindestreck+mellanslag i mobilfrågors svarsalternativ
-/*
-$(function(){
-    $(".responsiveMatrixCell .textQAnsweralternative").each(function(){
-        var text = $(this).text();
-        text = text.replace("- ", " ");
-        $(this).text(text);
-    });
-});
-*/
