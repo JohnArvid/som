@@ -79,13 +79,7 @@ $(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('chan
 });
 //END DRAGSPEL
 
-//Säkerställ att frågor med klassen removeZebra inte blir zebratable
-function removeZebra() {
-    const elements = document.querySelectorAll(".removeZebra .StripedRow");
-    for (let element in elements) {
-        element.classList.remove('StripedRow');
-    }
-}
+
 
 
 // Container function for all invoked onload

@@ -110,4 +110,11 @@ $(".responsiveInput").on("change", function(){
     :mobileInput.val(desktopInput.val());
     });
 }
-//END 2022updateResponsiveInputs.js
+
+//Säkerställ att frågor med klassen removeZebra inte blir zebratable
+function removeZebra() {
+  const elements = document.querySelectorAll(".removeZebra .StripedRow");
+  for (let element in elements) {
+      element.classList.remove('StripedRow');
+  }
+}
