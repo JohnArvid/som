@@ -79,12 +79,6 @@ $(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('chan
 });
 //END DRAGSPEL
 
-//UPPDATERA ÖPPNA SVAR
-$(function(){
-updateResponsiveInputs();
-});
-//END UPPDATERA ÖPPNA SVAR
-
 //Säkerställ att frågor med klassen removeZebra inte blir zebratable
 function removeZebra() {
     const elements = document.querySelectorAll(".removeZebra .StripedRow");
@@ -93,12 +87,11 @@ function removeZebra() {
     }
 }
 
-// $(function(){
-// 	$(".removeZebra .StripedRow").removeClass("StripedRow");
-// });
-
 
 // Container function for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
+  //UPPDATERA ÖPPNA SVAR
+  updateResponsiveInputs();
+  //Säkerställ att frågor med klassen removeZebra inte blir zebratable
   removeZebra();
 });
