@@ -86,6 +86,19 @@ updateResponsiveInputs();
 //END UPPDATERA ÖPPNA SVAR
 
 //Säkerställ att frågor med klassen removeZebra inte blir zebratable
-$(function(){
-	$(".removeZebra .StripedRow").removeClass("StripedRow");
+function removeZebra() {
+    const elements = document.querySelectorAll(".removeZebra .StripedRow");
+    for (let element in elements) {
+        element.classList.remove('StripedRow');
+    }
+}
+
+// $(function(){
+// 	$(".removeZebra .StripedRow").removeClass("StripedRow");
+// });
+
+
+// Container function for all invoked onload
+document.addEventListener('DOMContentLoaded', () => {
+  removeZebra();
 });
