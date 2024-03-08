@@ -96,19 +96,35 @@ function controlledCheckbox(qids){
 //END  2022controlledCheckBox.js
 
 //2022updateResponsiveInputs.js
+// function updateResponsiveInputs(){
+//     let desktopInput = $("input[type='text'].responsiveMatrixWeb"),
+//     mobileInput = $("input[type='text'].responsiveMatrixCell");
+// $("input[type='text'].responsiveInput").on("input", function(){
+//     isMobile.matches ? 
+//     desktopInput.val(mobileInput.val())
+//     :mobileInput.val(desktopInput.val());
+//     });
+// $(".responsiveInput").on("change", function(){
+//     isMobile.matches ? 
+//     desktopInput.val(mobileInput.val())
+//     :mobileInput.val(desktopInput.val());
+//     });
+// }
+
 function updateResponsiveInputs(){
-    let desktopInput = $("input[type='text'].responsiveMatrixWeb"),
-    mobileInput = $("input[type='text'].responsiveMatrixCell");
-$("input[type='text'].responsiveInput").on("input", function(){
+  let desktopInput = document.querySelector("input[type='text'].responsiveMatrixWeb");
+  let mobileInput = document.querySelector("input[type='text'].responsiveMatrixCell");
+  function updateCorrespondingInput() {
     isMobile.matches ? 
     desktopInput.val(mobileInput.val())
     :mobileInput.val(desktopInput.val());
-    });
-$(".responsiveInput").on("change", function(){
-    isMobile.matches ? 
-    desktopInput.val(mobileInput.val())
-    :mobileInput.val(desktopInput.val());
-    });
+  }
+  
+  document.querySelector("input[type='text'].responsiveInput")
+  .addEventListener("input", updateCorrespondingInput());
+
+  document.querySelector(".responsiveInput")
+  .addEventListener("change", updateCorrespondingInput());
 }
 
 //Säkerställ att frågor med klassen removeZebra inte blir zebratable
