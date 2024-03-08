@@ -336,6 +336,7 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
 }
 
 
+
 /****************************
 
    MOBIL CSS
@@ -347,6 +348,10 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
     .responsiveMatrixWeb , .webOnly{display:none}
     .responsiveMatrixCell, .cellOnly{display:block}
 
+    .simpleQuestionGridItem.activeItem span.header {
+        border-bottom: 1px solid rgba(50 50 50 0.5)
+    }
+    
     .fixWidth7 th.cellMatrixAnsweralternatives {
         vertical-align: bottom;
         min-width: 5em;
