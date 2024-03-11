@@ -118,6 +118,21 @@ function controlledCheckbox( qids ) {
     });
 }
 
+
+// New refactored checkBox function WIP :)
+
+function checkBoxFilters() {
+  // italicAlternative can be changed for something better and more semantic
+  let checkBoxLabels = document.querySelectorAll('.italicAlternative label.typeOther');
+  if (checkBoxLabels) {
+    let checkBoxIds = [];
+    checkBoxLabels.forEach( (item) => {
+      checkBoxIds.push( "[name='setvalue" + item.getAttribute('for') + "']" );
+    })
+
+  }
+}
+
 //END  2022controlledCheckBox.js
 
 
