@@ -8,7 +8,8 @@ openField.removeClass("passiveConnection");
 
 
 
-//Mobilfrågor med klassen "cellOnly" exkluderas från dragspelsgrejen, dvs, är alltid uppfällda
+// Mobilfrågor med klassen "cellOnly" exkluderas från dragspelsgrejen, 
+// dvs, är alltid uppfällda
 $(".cellOnly .simpleQuestionGridItem").removeClass("simpleQuestionGridItem");
 
 
@@ -25,14 +26,21 @@ mobileQuestions = [],
 activeQid,
 passiveQid,
 qindex,
-isMobile = window.matchMedia("only screen and(max-device-width: 568px), only screen and (max-width: 568px)");
+isMobile = window.matchMedia(
+    "only screen and(max-device-width: 568px), only screen and (max-width: 568px)"
+    );
 
-$(".responsiveMatrixWeb a.reference").each( function(index) { desktopQuestions.push($(this).attr("name").replace("ref",""))});
-$(".responsiveMatrixCell a.reference").each( function(index) { mobileQuestions.push($(this).attr("name").replace("ref",""))});
+$(".responsiveMatrixWeb a.reference").each( function(index) {
+    desktopQuestions.push($(this).attr("name").replace("ref",""))}
+    );
+$(".responsiveMatrixCell a.reference").each( function(index) {
+    mobileQuestions.push($(this).attr("name").replace("ref",""))
+});
 
 function jq( id ) {
     return "#" + id.replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" );
 }
+
 if ($(".simpleQuestionGridItem").length > 1 && mobileQuestions.length > 0) {
 $(".simpleQuestionGridItem").first().addClass("activeItem");//Ge klassen activeItem till första frågan
 $(".simpleQuestionGridItem:not(.activeItem)").find(".QuestionTable").slideUp("slow");//Göm alla andra frågor
@@ -82,10 +90,9 @@ $(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('chan
 
 
 
-// Container function for all invoked onload
+// Containerfunction for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
-  //UPPDATERA ÖPPNA SVAR
   updateResponsiveInputs();
-  //Säkerställ att frågor med klassen removeZebra inte blir zebratable
   removeZebra();
+  alwaysShowOpenFields();
 });
