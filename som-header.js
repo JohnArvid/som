@@ -4,7 +4,6 @@
 // $.each is a simple iteration construct to loop
 // over an array, collection or object
 
-
 function controllingArrays( desktopControllers, mobileControllers, hideClass, hideClassOnly ){
 
     var controlIsActive = 0;
@@ -80,7 +79,10 @@ function controllingArrays( desktopControllers, mobileControllers, hideClass, hi
 //END  Controllingarrays
 
 //2022controlledCheckBox.js
-//Styr att frågor visas/döljs med checkbox
+// Styr att frågor visas/döljs med checkbox
+// Refactor till att själv kolla upp id på items genom ett klassnamn
+// Det blir bättre interface att bara lägga en klass på de checkboxar
+// som ska kontrollera något annat
 function controlledCheckbox( qids ) {
     let checkBox = [], //array med checkboxar som styr
     mobileClass = ".responsiveMatrixCell",
