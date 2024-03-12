@@ -158,9 +158,9 @@ const indikator = {
   //Säkerställ att frågor med klassen removeZebra inte blir zebratable
   removeZebra: function () {
     const elements = document.querySelectorAll(".removeZebra .StripedRow");
-    for (let element in elements) {
-        element.classList.remove('StripedRow');
-    }
+    elements.forEach( (element) => {
+      element.classList.remove('StripedRow');
+    })
   },
 
   // Always show open fields
