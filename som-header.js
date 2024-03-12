@@ -137,38 +137,39 @@ function checkBoxFilters() {
 
 
 // Refactored below!
+const indikator = {
+  updateResponsiveInputs: function (){
+    let desktopInput = document.querySelector("input[type='text'].responsiveMatrixWeb");
+    let mobileInput = document.querySelector("input[type='text'].responsiveMatrixCell");
 
-function updateResponsiveInputs(){
-  let desktopInput = document.querySelector("input[type='text'].responsiveMatrixWeb");
-  let mobileInput = document.querySelector("input[type='text'].responsiveMatrixCell");
+    function updateCorrespondingInput() {
+      isMobile.matches ? 
+      desktopInput.val(mobileInput.val())
+      :mobileInput.val(desktopInput.val());
+    }
+    
+    document.querySelector("input[type='text'].responsiveInput")
+    .addEventListener("input", updateCorrespondingInput());
 
-  function updateCorrespondingInput() {
-    isMobile.matches ? 
-    desktopInput.val(mobileInput.val())
-    :mobileInput.val(desktopInput.val());
-  }
-  
-  document.querySelector("input[type='text'].responsiveInput")
-  .addEventListener("input", updateCorrespondingInput());
+    document.querySelector(".responsiveInput")
+    .addEventListener("change", updateCorrespondingInput());
+  },
 
-  document.querySelector(".responsiveInput")
-  .addEventListener("change", updateCorrespondingInput());
-}
+  //Säkerställ att frågor med klassen removeZebra inte blir zebratable
+  removeZebra: function () {
+    const elements = document.querySelectorAll(".removeZebra .StripedRow");
+    for (let element in elements) {
+        element.classList.remove('StripedRow');
+    }
+  },
 
-//Säkerställ att frågor med klassen removeZebra inte blir zebratable
-function removeZebra() {
-  const elements = document.querySelectorAll(".removeZebra .StripedRow");
-  for (let element in elements) {
-      element.classList.remove('StripedRow');
-  }
-}
-
-// Always show open fields
-function alwaysShowOpenFields(){
-  const elements = document.querySelectorAll("input[type='text']");
-  for (let element in elements) {
-    element.setAttribute('disabled', false);
-    element.classList.add('activeConnection');
-    element.classList.remove('passiveConnection');
+  // Always show open fields
+  alwaysShowOpenFields: function (){
+    const elements = document.querySelectorAll("input[type='text']");
+    for (let element in elements) {
+      element.setAttribute('disabled', false);
+      element.classList.add('activeConnection');
+      element.classList.remove('passiveConnection');
+    }
   }
 }
