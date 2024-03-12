@@ -160,16 +160,16 @@ const indikator = {
     const elements = document.querySelectorAll(".removeZebra .StripedRow");
     elements.forEach( (element) => {
       element.classList.remove('StripedRow');
-    })
+    });
   },
 
   // Always show open fields
   alwaysShowOpenFields: function (){
     const elements = document.querySelectorAll("input[type='text']");
-    for (let element in elements) {
+    elements.forEach( (element) => {
       element.setAttribute('disabled', false);
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
-    }
+    });
   }
 }
