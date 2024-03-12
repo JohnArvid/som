@@ -83,7 +83,7 @@ $(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('chan
 
 // Containerfunction for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
-  updateResponsiveInputs();
-  removeZebra();
-  alwaysShowOpenFields();
+  indikator.updateResponsiveInputs();
+  indikator.removeZebra();
+  indikator.alwaysShowOpenFields();
 });
