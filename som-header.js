@@ -169,6 +169,6 @@ function alwaysShowOpenFields(){
   for (let element in elements) {
     element.setAttribute('disabled', false);
     element.classList.add('activeConnection');
-    element.classList.remove('passiveconnection');
+    element.classList.remove('passiveConnection');
   }
 }

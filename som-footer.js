@@ -1,12 +1,3 @@
-//Alla öppna fält visas alltid
-$(function(){
-var openField = $("input[type='text']");
-openField.prop("disabled", false);	
-openField.addClass("activeConnection");
-openField.removeClass("passiveConnection");
-});
-
-
 
 // Mobilfrågor med klassen "cellOnly" exkluderas från dragspelsgrejen, 
 // dvs, är alltid uppfällda
