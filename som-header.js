@@ -171,5 +171,13 @@ const indikator = {
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
     });
+  },
+
+  setNumericKeyboard: function(){
+    const elements = document.querySelectorAll("input.numeric0");
+    elements.forEach( (element) => {
+      element.setAttribute("type", "text");
+      element.setAttribute("pattern", "[0-9]*");
+    });
   }
 }
