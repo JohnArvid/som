@@ -179,5 +179,12 @@ const indikator = {
       element.setAttribute("type", "text");
       element.setAttribute("pattern", "[0-9]*");
     });
+  },
+
+  excludeCellOnlyFromAccordion: function(){
+    const elements = document.querySelectorAll(".cellOnly .simpleQuestionGridItem");
+    elements.forEach( (element) => {
+      element.classList.remove("simpleQuestionGridItem");
+    });
   }
 }

@@ -1,15 +1,4 @@
 
-// Mobilfrågor med klassen "cellOnly" exkluderas från dragspelsgrejen, 
-// dvs, är alltid uppfällda
-$(".cellOnly .simpleQuestionGridItem").removeClass("simpleQuestionGridItem");
-
-
-//Numeriskt tangentbord på numeriska frågor
-$(function(){
-  $("input.numeric0").attr("type", "text").attr("pattern", "[0-9]*");
-});
-
-
 //Dragspelsfunktionalitet
 var i = 0,
 desktopQuestions = [], 
@@ -96,6 +85,7 @@ $( isMobile.matches
 // Containerfunction for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
   indikator.setNumericKeyboard();
+  indikator.excludeCellOnlyFromAccordion();
   indikator.updateTextInputs();
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
