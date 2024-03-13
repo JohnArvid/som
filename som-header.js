@@ -84,38 +84,39 @@ function controllingArrays( desktopControllers, mobileControllers, hideClass, hi
 // Det blir bättre interface att bara lägga en klass på de checkboxar
 // som ska kontrollera något annat
 function controlledCheckbox( qids ) {
-    let checkBox = [], //array med checkboxar som styr
-    mobileClass = ".responsiveMatrixCell",
-    desktopClass = ".responsiveMatrixWeb",
-    controlled = ".controlled, .controlledOpen"; //controlled ges till frågor som ska döljas/visas, controlledOpen ges till öppna frågor som ska döljas/visas
+  let checkBox = [], //array med checkboxar som styr
+  mobileClass = ".responsiveMatrixCell",
+  desktopClass = ".responsiveMatrixWeb",
+  controlled = ".controlled, .controlledOpen"; //controlled ges till frågor som ska döljas/visas, controlledOpen ges till öppna frågor som ska döljas/visas
 
-    $.each(qids, function(index, value) {
-        checkBox.push("[name='setvalue"+value+"']")
-    });
+  $.each(qids, function(index, value) {
+    checkBox.push("[name='setvalue"+value+"']")
+  });
 
+  // Below needs to be refactored and moved into checkBoxFilters() 
+  $.each(checkBox, function(index, value) {
+    if($(value).hasClass("activeCheckbox")){
+      $(isMobile.matches ? mobileClass+controlled : desktopClass+controlled).hide();
+    }
+  });
+
+  $( "form" ).change( function() {
     $.each(checkBox, function(index, value) {
-        if($(value).hasClass("activeCheckbox")){
-            $(isMobile.matches ? mobileClass+controlled : desktopClass+controlled).hide();
-        }
+      if( $( value ).hasClass( "activeCheckbox" ) ){
+        $( isMobile.matches ?
+        mobileClass + controlled
+        :desktopClass + controlled )
+        .hide();
+        return 
+      } else {
+        $( isMobile.matches ?
+        mobileClass + controlled
+        :desktopClass + controlled)
+        .show();
+        return
+      }
     });
-
-    $( "form" ).change( function() {
-        $.each(checkBox, function(index, value) {
-            if( $( value ).hasClass( "activeCheckbox" ) ){
-                $( isMobile.matches ?
-                  mobileClass + controlled
-                  :desktopClass + controlled )
-                  .hide();
-                return 
-            } else {
-                $( isMobile.matches ?
-                  mobileClass + controlled
-                  :desktopClass + controlled)
-                  .show();
-                return
-            }
-        });
-    });
+  });
 }
 
 
@@ -129,6 +130,8 @@ function checkBoxFilters() {
     checkBoxLabels.forEach( (item) => {
       checkBoxIds.push( "[name='setvalue" + item.getAttribute('for') + "']" );
     })
+
+    // Function continues here
 
   }
 }
