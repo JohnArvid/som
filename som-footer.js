@@ -35,7 +35,8 @@ function jq( id ) {
 if ($(".simpleQuestionGridItem").length > 1 && mobileQuestions.length > 0) {
   //Ge klassen activeItem till första frågan
   $(".simpleQuestionGridItem").first().addClass("activeItem");
-  $(".simpleQuestionGridItem:not(.activeItem)").find(".QuestionTable").slideUp("slow");
+  $(".simpleQuestionGridItem:not(.activeItem)")
+  .find(".QuestionTable").slideUp("slow");
   //Göm alla andra frågor
   $(".simpleQuestionGridItem").each(function( index ) {
       $(this).attr("id", "gridQuestion" + index);
@@ -64,18 +65,29 @@ if ($(".simpleQuestionGridItem").length > 1 && mobileQuestions.length > 0) {
     });
 }
 
-$(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('change', function(e) { 
-  let changedVar = e.target.id.match(/^Q[0-9]+/g)[0];
-  isMobile.matches ? qindex = mobileQuestions.indexOf(changedVar) : qindex = desktopQuestions.indexOf(changedVar);
-  i++;
-  isMobile.matches ? activeQid = mobileQuestions[qindex] : activeQid = desktopQuestions[qindex];
-  isMobile.matches ? passiveQid = desktopQuestions[qindex] : passiveQid = mobileQuestions[qindex];
-  if (e.target.checked == false) {
-      $(jq(e.target.id.replace(activeQid,passiveQid))).attr("checked", false)
-  }
-  else if (e.target.checked == true){
-      $(jq(e.target.id.replace(activeQid,passiveQid))).attr("checked", true);
-  }
+$( isMobile.matches
+  ? ".responsiveMatrixCell"
+  : ".responsiveMatrixWeb" )
+  .on('change', function(e) {
+    let changedVar = e.target.id.match(/^Q[0-9]+/g)[0];
+    isMobile.matches
+    ? qindex = mobileQuestions.indexOf(changedVar)
+    : qindex = desktopQuestions.indexOf(changedVar);
+
+    i++;
+    isMobile.matches 
+    ? activeQid = mobileQuestions[qindex]
+    : activeQid = desktopQuestions[qindex];
+
+    isMobile.matches
+    ? passiveQid = desktopQuestions[qindex]
+    : passiveQid = mobileQuestions[qindex];
+
+    if (e.target.checked == false) {
+        $(jq(e.target.id.replace(activeQid,passiveQid))).attr("checked", false);
+    } else if (e.target.checked == true) {
+        $(jq(e.target.id.replace(activeQid,passiveQid))).attr("checked", true);
+    }
 });
 //END DRAGSPEL
 
@@ -83,7 +95,7 @@ $(isMobile.matches ? ".responsiveMatrixCell" : ".responsiveMatrixWeb" ).on('chan
 
 // Containerfunction for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
-  indikator.updateResponsiveInputs();
+  indikator.updateTextInputs();
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
 });

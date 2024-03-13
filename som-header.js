@@ -138,7 +138,7 @@ function checkBoxFilters() {
 
 // Refactored below!
 const indikator = {
-  updateResponsiveInputs: function (){
+  updateTextInputs: function (){
     let desktopInput = document.querySelector("input[type='text'].responsiveMatrixWeb");
     let mobileInput = document.querySelector("input[type='text'].responsiveMatrixCell");
 
