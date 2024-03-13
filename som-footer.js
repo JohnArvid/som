@@ -95,6 +95,7 @@ $( isMobile.matches
 
 // Containerfunction for all invoked onload
 document.addEventListener('DOMContentLoaded', () => {
+  indikator.setNumericKeyboard();
   indikator.updateTextInputs();
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
