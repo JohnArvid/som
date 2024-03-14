@@ -190,21 +190,25 @@ const indikator = {
       element.classList.remove("simpleQuestionGridItem");
     });
   },
-   
-  accordion: function() {
-    var i = 0,
-    desktopQuestions = [], 
-    mobileQuestions = [],
-    activeQid,
-    passiveQid,
-    qindex,
-    isMobile = window.matchMedia(
-        "only screen and(max-device-width: 568px), only screen and (max-width: 568px)"
-        );
 
-    $(".responsiveMatrixWeb a.reference").each( function(index) {
-        desktopQuestions.push($(this).attr("name").replace("ref",""))
-    });
+  accordion: function() {
+    let i = 0; 
+    let desktopQuestions = [];
+    let mobileQuestions = [];
+    let activeQid; 
+    let passiveQid;
+    let qindex; 
+    const isMobile = window.matchMedia(
+        "only screen and(max-device-width: 568px), only screen and (max-width: 568px)");
+    
+    document.querySelectorAll(".responsiveMatrixWeb a.reference")
+    .forEach( (element) => {
+      desktopQuestions.push(element.getAttribute("name").replace("ref",""));
+    }); 
+
+    // $(".responsiveMatrixWeb a.reference").each( function(index) {
+        // desktopQuestions.push($(this).attr("name").replace("ref",""))
+    // });
     $(".responsiveMatrixCell a.reference").each( function(index) {
         mobileQuestions.push($(this).attr("name").replace("ref",""))
     });
