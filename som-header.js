@@ -104,13 +104,16 @@ function controlledCheckbox( qids ) {
   // controlledOpen ges till öppna frågor som ska döljas/visas
 
   $.each(qids, function(index, value) {
-    checkBox.push("[name='setvalue"+value+"']")
+    checkBox.push("[name='setvalue" + value + "']")
   });
 
   // Below needs to be refactored and moved into checkBoxFilters() 
   $.each(checkBox, function(index, value) {
     if($(value).hasClass("activeCheckbox")){
-      $(isMobile.matches ? mobileClass+controlled : desktopClass+controlled).hide();
+      $( isMobile.matches
+         ? mobileClass + controlled
+         : desktopClass + controlled )
+         .hide();
     }
   });
 
@@ -125,7 +128,7 @@ function controlledCheckbox( qids ) {
       } else {
         $( isMobile.matches
         ? mobileClass + controlled
-        : desktopClass + controlled)
+        : desktopClass + controlled )
         .show();
         return
       }
