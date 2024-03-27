@@ -107,9 +107,13 @@ function controlledCheckbox( qids ) {
     checkBox.push("[name='setvalue" + value + "']")
   });
 
+
   // Below needs to be refactored and moved into checkBoxFilters() 
+  // Loops over each checkbox when page loads
   $.each(checkBox, function(index, value) {
+  // if checkbox has class 'activeCheckbox'
     if($(value).hasClass("activeCheckbox")){
+      // This should be a separate function hideControlledItems()
       $( isMobile.matches
          ? mobileClass + controlled
          : desktopClass + controlled )
@@ -117,8 +121,10 @@ function controlledCheckbox( qids ) {
     }
   });
 
+  // Loops over each checkbox when form changes
   $( "form" ).change( function() {
     $.each(checkBox, function(index, value) {
+      // if checkbox has class 'activeCheckbox'
       if( $( value ).hasClass( "activeCheckbox" ) ){
         $( isMobile.matches
         ? mobileClass + controlled
@@ -143,6 +149,15 @@ function checkBoxFilters() {
   // italicAlternative can be changed for something better and more semantic
   let checkBoxClass = '.italicAlternative label.typeOther';
   let checkBoxLabels = document.querySelectorAll(checkBoxClass);
+  
+  const hideControlledItems = () => {
+    if (isMobile.matches) {
+      // hide mobileItems
+    } else {
+      // hide desktopItems
+    }
+  }
+  
   if (checkBoxLabels) {
     let checkBoxIds = [];
     checkBoxLabels.forEach( (item) => {
