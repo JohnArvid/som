@@ -7,6 +7,7 @@ function som() {
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
   indikator.accordion();
+  console.log('scripts ran');
 }
 
 if (document.readyState === 'loading') {
