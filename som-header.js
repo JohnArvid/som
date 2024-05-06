@@ -132,6 +132,7 @@ const indikator = {
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
     let controlledClass = '.controlled';
     let checkBoxIds;
+    let inputIds;
 
     let responsiveClass = isMobile.matches
       ? '.responsiveMatrixCell'
@@ -154,18 +155,17 @@ const indikator = {
 
     if (checkBoxLabels) {
       checkBoxIds = [];
+      inputIds = [];
       checkBoxLabels.forEach((item) => {
         checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
+        inputIds.push(item.getAttribute('for'));
       });
 
       // add the eventlisteners on the checkboxes and use e.target in haadler
       let changeHandler = () => {
-        checkBoxIds.forEach((checkBox, i) => {
+        inputIds.forEach((input) => {
           // if checkbox has class 'activeCheckbox'
-          if (
-            document.getElementById(checkBoxLabels[i].getAttribute('for'))
-              .checked
-          ) {
+          if (document.getElementById(input).checked) {
             console.log('hide them');
             hideControlledItems();
           } else {
