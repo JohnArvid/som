@@ -243,7 +243,7 @@ const indikator = {
         element.setAttribute('pattern', '[0-9]*');
       });
     } else {
-      console.info(
+      console.log(
         `setNumericKeyBoard says: elements.length is ${elements.length}`
       );
     }
