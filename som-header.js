@@ -112,11 +112,6 @@ function controllingArrays(
     }
   });
 }
-//END  Controllingarrays
-
-// New refactored checkBox function WIP :)
-
-//END  checkBoxFilters
 
 // Refactored below!
 
@@ -182,6 +177,7 @@ const indikator = {
       changeHandler();
     }
   },
+
   updateTextInputs: function () {
     let desktopClass = '.responsiveMatrixWeb';
     let mobileClass = '.responsiveMatrixCell';
@@ -207,7 +203,6 @@ const indikator = {
     }
   },
 
-  //Säkerställ att frågor med klassen removeZebra inte blir zebratable
   removeZebra: function () {
     const elements = document.querySelectorAll('.removeZebra .StripedRow');
     elements.forEach((element) => {
@@ -215,7 +210,6 @@ const indikator = {
     });
   },
 
-  // Always show open fields
   alwaysShowOpenFields: function () {
     const elements = document.querySelectorAll("input[type='text']");
     elements.forEach((element) => {
@@ -248,6 +242,7 @@ const indikator = {
     });
   },
 
+  // In need of refactoring!
   accordion: function () {
     let i = 0;
     let desktopQuestions = [];
