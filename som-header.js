@@ -136,7 +136,7 @@ const indikator = {
       let responsiveClass = isMobile.matches
         ? '.responsiveMatrixCell'
         : '.responsiveMatrixWeb';
-  
+
       let elements =
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
@@ -144,19 +144,28 @@ const indikator = {
         element.classList.add('hidden');
       });
     };
-  
+
     if (checkBoxLabels) {
       checkBoxIds = [];
       checkBoxLabels.forEach((item) => {
         checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
       });
-      
-      checkBoxIds.forEach((checkBox) => {
-        // if checkbox has class 'activeCheckbox'
-        if (document.querySelector(checkBox).classList.contains('activeCheckbox')) {
-          hideControlledItems();
-        }
-      });
+
+      let form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('change', () => {
+          checkBoxIds.forEach((checkBox) => {
+            // if checkbox has class 'activeCheckbox'
+            if (
+              document
+                .querySelector(checkBox)
+                .classList.contains('activeCheckbox')
+            ) {
+              hideControlledItems();
+            }
+          });
+        });
+      }
     }
   },
   updateTextInputs: function () {
