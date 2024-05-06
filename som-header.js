@@ -194,6 +194,11 @@ function checkBoxFilters() {
 //END  2022controlledCheckBox.js
 
 // Refactored below!
+
+const isMobile = window.matchMedia(
+  'only screen and(max-device-width: 568px), only screen and (max-width: 568px)'
+);
+
 const indikator = {
   updateTextInputs: function () {
     let desktopClass = '.responsiveMatrixWeb';
@@ -208,13 +213,14 @@ const indikator = {
         : mobileInput.val(desktopInput.val());
     }
 
-    document
-      .querySelector("input[type='text'].responsiveInput")
-      .addEventListener('input', updateCorrespondingInput());
-
-    document
-      .querySelector('.responsiveInput')
-      .addEventListener('change', updateCorrespondingInput());
+    let inputTarget = document.querySelector("input[type='text'].responsiveInput");
+    if (inputTarget) {
+      inputTarget.addEventListener('input', updateCorrespondingInput());
+    }
+    let changeTarget = document.querySelector('.responsiveInput')
+      if (changeTarget) {
+        changeTarget.addEventListener('change', updateCorrespondingInput());
+      }
   },
 
   //Säkerställ att frågor med klassen removeZebra inte blir zebratable
@@ -265,9 +271,7 @@ const indikator = {
     let activeQid;
     let passiveQid;
     let qindex;
-    const isMobile = window.matchMedia(
-      'only screen and(max-device-width: 568px), only screen and (max-width: 568px)'
-    );
+    
 
     document
       .querySelectorAll('.responsiveMatrixWeb a.reference')
