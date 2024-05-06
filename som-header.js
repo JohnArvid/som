@@ -160,9 +160,14 @@ const indikator = {
 
       // add the eventlisteners on the checkboxes and use e.target in handler
       let changeHandler = () => {
-        inputIds.forEach((input) => {
+        inputIds.forEach((input, i) => {
           // if checkbox has class 'activeCheckbox'
-          if (document.getElementById(input).checked) {
+          if (
+            document.getElementById(input).checked ||
+            document
+              .querySelector(checkBoxIds[i])
+              .classList.contains('activeCheckbox')
+          ) {
             console.log('hide them');
             hideControlledItems();
           } else {
