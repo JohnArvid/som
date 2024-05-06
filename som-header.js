@@ -132,16 +132,23 @@ const indikator = {
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
     let controlledClass = '.controlled';
     let checkBoxIds;
-    const hideControlledItems = () => {
-      let responsiveClass = isMobile.matches
-        ? '.responsiveMatrixCell'
-        : '.responsiveMatrixWeb';
 
-      let elements =
-        document.querySelectorAll(controlledClass + responsiveClass) ||
-        document.querySelectorAll(controlledClass);
-      elements.forEach((element) => {
+    let responsiveClass = isMobile.matches
+      ? '.responsiveMatrixCell'
+      : '.responsiveMatrixWeb';
+    let elements =
+      document.querySelectorAll(controlledClass + responsiveClass) ||
+      document.querySelectorAll(controlledClass);
+
+    const hideControlledItems = () => {
+       elements.forEach((element) => {
         element.classList.add('hidden');
+      });
+    };
+
+    const showControlledItems = () => {
+      elements.forEach((element) => {
+        element.classList.remove('hidden');
       });
     };
 
@@ -162,6 +169,8 @@ const indikator = {
                 .classList.contains('activeCheckbox')
             ) {
               hideControlledItems();
+            } else {
+              showControlledItems();
             }
           });
         });
