@@ -122,41 +122,43 @@ const isMobile = window.matchMedia(
 const indikator = {
   checkBoxFilters: function () {
     // CSS class  'cbController' is added to item with check box that is controlling other question
-    // plus alternative is marked as 'other' in GUI
+    // plus the alternative is marked as 'other' in GUI
     let checkBoxClass = '.cbController label.typeOther';
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
-    let controlledClass = '.controlled';
-    let checkBoxIds;
-    let inputIds;
-
-    let responsiveClass = isMobile.matches
-      ? '.responsiveMatrixCell'
-      : '.responsiveMatrixWeb';
-    let elements =
-      document.querySelectorAll(controlledClass + responsiveClass) ||
-      document.querySelectorAll(controlledClass);
-
-    const hideControlledItems = () => {
-      elements.forEach((element) => {
-        element.classList.add('hidden');
-      });
-    };
-
-    const showControlledItems = () => {
-      elements.forEach((element) => {
-        element.classList.remove('hidden');
-      });
-    };
 
     if (checkBoxLabels) {
-      checkBoxIds = [];
-      inputIds = [];
+      let controlledClass = '.controlled';
+      let items = document.getElementById('items');
+      let allAnchors = document.querySelectorAll('a.fakeInput');
+      let checkBoxIds = [];
+      let inputIds = [];
+
+      let responsiveClass = isMobile.matches
+        ? '.responsiveMatrixCell'
+        : '.responsiveMatrixWeb';
+
+      let elements =
+        document.querySelectorAll(controlledClass + responsiveClass) ||
+        document.querySelectorAll(controlledClass);
+
+      const hideControlledItems = () => {
+        elements.forEach((element) => {
+          element.classList.add('hidden');
+        });
+      };
+
+      const showControlledItems = () => {
+        elements.forEach((element) => {
+          element.classList.remove('hidden');
+        });
+      };
+
       checkBoxLabels.forEach((item) => {
         checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
         inputIds.push(item.getAttribute('for'));
       });
 
-      // add the eventlisteners on the checkboxes and use e.target in haadler
+      // add the eventlisteners on the checkboxes and use e.target in handler
       let changeHandler = () => {
         inputIds.forEach((input) => {
           // if checkbox has class 'activeCheckbox'
@@ -170,10 +172,9 @@ const indikator = {
         });
       };
 
-      let form = document.querySelector('form');
-      if (form) {
-        form.addEventListener('change', changeHandler);
-      }
+      items.addEventListener('change', changeHandler);
+      allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
+
       changeHandler();
     }
   },
