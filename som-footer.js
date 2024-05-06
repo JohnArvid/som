@@ -1,6 +1,7 @@
 // Containerfunction for all invoked onload
 function som() {
   'use strict';
+  console.log('som() running');
   indikator.setNumericKeyboard();
   indikator.excludeCellOnlyFromAccordion();
   indikator.updateTextInputs();
