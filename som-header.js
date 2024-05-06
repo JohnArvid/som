@@ -114,84 +114,44 @@ function controllingArrays(
 }
 //END  Controllingarrays
 
-//2022controlledCheckBox.js
-// Styr att frågor visas/döljs med checkbox
-// Refactor till att själv kolla upp id på items genom ett klassnamn
-// Det blir bättre interface att bara lägga en klass på de checkboxar
-// som ska kontrollera något annat
-function controlledCheckbox(qids) {
-  let checkBox = [], //array med checkboxar som styr
-    mobileClass = '.responsiveMatrixCell',
-    desktopClass = '.responsiveMatrixWeb',
-    controlled = '.controlled, .controlledOpen';
-  // controlled ges till frågor som ska döljas/visas,
-  // controlledOpen ges till öppna frågor som ska döljas/visas
-
-  $.each(qids, function (index, value) {
-    checkBox.push("[name='setvalue" + value + "']");
-  });
-
-  // Below needs to be refactored and moved into checkBoxFilters()
-  // Loops over each checkbox when page loads
-  $.each(checkBox, function (index, value) {
-    // if checkbox has class 'activeCheckbox'
-    if ($(value).hasClass('activeCheckbox')) {
-      // This should be a separate function hideControlledItems()
-      $(
-        isMobile.matches ? mobileClass + controlled : desktopClass + controlled
-      ).hide();
-    }
-  });
-
-  // Loops over each checkbox when form changes
-  $('form').change(function () {
-    $.each(checkBox, function (index, value) {
-      // if checkbox has class 'activeCheckbox'
-      if ($(value).hasClass('activeCheckbox')) {
-        $(
-          isMobile.matches
-            ? mobileClass + controlled
-            : desktopClass + controlled
-        ).hide();
-        return;
-      } else {
-        $(
-          isMobile.matches
-            ? mobileClass + controlled
-            : desktopClass + controlled
-        ).show();
-        return;
-      }
-    });
-  });
-}
-
 // New refactored checkBox function WIP :)
 
 function checkBoxFilters() {
-  // italicAlternative can be changed for something better and more semantic
-  let checkBoxClass = '.italicAlternative label.typeOther';
+  // CSS class  'cbController' is added to item with check box that is controlling other question
+  // plus alternative is marked as 'other' in GUI
+  let checkBoxClass = '.cbController label.typeOther';
   let checkBoxLabels = document.querySelectorAll(checkBoxClass);
-
+  let controlledClass = '.controlled';
+  let checkBoxIds;
   const hideControlledItems = () => {
-    if (isMobile.matches) {
-      // hide mobileItems
-    } else {
-      // hide desktopItems
-    }
+    let responsiveClass = isMobile.matches
+      ? '.responsiveMatrixCell'
+      : '.responsiveMatrixWeb';
+
+    let elements =
+      document.querySelectorAll(controlledClass + responsiveClass) ||
+      document.querySelectorAll(controlledClass);
+    elements.forEach((element) => {
+      element.classList.add('hidden');
+    });
   };
 
   if (checkBoxLabels) {
-    let checkBoxIds = [];
+    checkBoxIds = [];
     checkBoxLabels.forEach((item) => {
       checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
     });
-
-    // Function continues here
+    
+    checkBoxIds.forEach((checkBox) => {
+      // if checkbox has class 'activeCheckbox'
+      if (document.querySelector(checkBox).classList.contains('activeCheckbox')) {
+        hideControlledItems();
+      }
+    });
   }
 }
 
-//END  2022controlledCheckBox.js
+//END  checkBoxFilters
 
 // Refactored below!
 
@@ -213,14 +173,16 @@ const indikator = {
         : mobileInput.val(desktopInput.val());
     }
 
-    let inputTarget = document.querySelector("input[type='text'].responsiveInput");
+    let inputTarget = document.querySelector(
+      "input[type='text'].responsiveInput"
+    );
     if (inputTarget) {
       inputTarget.addEventListener('input', updateCorrespondingInput());
     }
-    let changeTarget = document.querySelector('.responsiveInput')
-      if (changeTarget) {
-        changeTarget.addEventListener('change', updateCorrespondingInput());
-      }
+    let changeTarget = document.querySelector('.responsiveInput');
+    if (changeTarget) {
+      changeTarget.addEventListener('change', updateCorrespondingInput());
+    }
   },
 
   //Säkerställ att frågor med klassen removeZebra inte blir zebratable
@@ -271,7 +233,6 @@ const indikator = {
     let activeQid;
     let passiveQid;
     let qindex;
-    
 
     document
       .querySelectorAll('.responsiveMatrixWeb a.reference')
