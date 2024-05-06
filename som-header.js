@@ -116,41 +116,6 @@ function controllingArrays(
 
 // New refactored checkBox function WIP :)
 
-function checkBoxFilters() {
-  // CSS class  'cbController' is added to item with check box that is controlling other question
-  // plus alternative is marked as 'other' in GUI
-  let checkBoxClass = '.cbController label.typeOther';
-  let checkBoxLabels = document.querySelectorAll(checkBoxClass);
-  let controlledClass = '.controlled';
-  let checkBoxIds;
-  const hideControlledItems = () => {
-    let responsiveClass = isMobile.matches
-      ? '.responsiveMatrixCell'
-      : '.responsiveMatrixWeb';
-
-    let elements =
-      document.querySelectorAll(controlledClass + responsiveClass) ||
-      document.querySelectorAll(controlledClass);
-    elements.forEach((element) => {
-      element.classList.add('hidden');
-    });
-  };
-
-  if (checkBoxLabels) {
-    checkBoxIds = [];
-    checkBoxLabels.forEach((item) => {
-      checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
-    });
-    
-    checkBoxIds.forEach((checkBox) => {
-      // if checkbox has class 'activeCheckbox'
-      if (document.querySelector(checkBox).classList.contains('activeCheckbox')) {
-        hideControlledItems();
-      }
-    });
-  }
-}
-
 //END  checkBoxFilters
 
 // Refactored below!
@@ -160,6 +125,40 @@ const isMobile = window.matchMedia(
 );
 
 const indikator = {
+  checkBoxFilters: function () {
+    // CSS class  'cbController' is added to item with check box that is controlling other question
+    // plus alternative is marked as 'other' in GUI
+    let checkBoxClass = '.cbController label.typeOther';
+    let checkBoxLabels = document.querySelectorAll(checkBoxClass);
+    let controlledClass = '.controlled';
+    let checkBoxIds;
+    const hideControlledItems = () => {
+      let responsiveClass = isMobile.matches
+        ? '.responsiveMatrixCell'
+        : '.responsiveMatrixWeb';
+  
+      let elements =
+        document.querySelectorAll(controlledClass + responsiveClass) ||
+        document.querySelectorAll(controlledClass);
+      elements.forEach((element) => {
+        element.classList.add('hidden');
+      });
+    };
+  
+    if (checkBoxLabels) {
+      checkBoxIds = [];
+      checkBoxLabels.forEach((item) => {
+        checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
+      });
+      
+      checkBoxIds.forEach((checkBox) => {
+        // if checkbox has class 'activeCheckbox'
+        if (document.querySelector(checkBox).classList.contains('activeCheckbox')) {
+          hideControlledItems();
+        }
+      });
+    }
+  },
   updateTextInputs: function () {
     let desktopClass = '.responsiveMatrixWeb';
     let mobileClass = '.responsiveMatrixCell';

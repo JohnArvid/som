@@ -8,6 +8,7 @@ function som() {
   indikator.updateTextInputs();
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
+  indikator.checkBoxFilters();
   indikator.accordion();
   console.log('scripts ran');
 }
