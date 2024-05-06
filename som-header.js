@@ -162,7 +162,10 @@ const indikator = {
       let changeHandler = () => {
         checkBoxIds.forEach((checkBox, i) => {
           // if checkbox has class 'activeCheckbox'
-          if (document.getElementById(checkBoxLabels[i]).checked) {
+          if (
+            document.getElementById(checkBoxLabels[i].getAttribute('for'))
+              .checked
+          ) {
             console.log('hide them');
             hideControlledItems();
           } else {
