@@ -158,14 +158,11 @@ const indikator = {
         checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
       });
 
+      // add the eventlisteners on the checkboxes and use e.target in haadler
       let changeHandler = () => {
-        checkBoxIds.forEach((checkBox) => {
+        checkBoxIds.forEach((checkBox, i) => {
           // if checkbox has class 'activeCheckbox'
-          if (
-            document
-              .querySelector(checkBox)
-              .classList.contains('activeCheckbox')
-          ) {
+          if (document.getElementById(checkBoxLabels[i]).checked) {
             console.log('hide them');
             hideControlledItems();
           } else {
