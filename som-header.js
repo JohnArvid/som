@@ -141,7 +141,7 @@ const indikator = {
       document.querySelectorAll(controlledClass);
 
     const hideControlledItems = () => {
-       elements.forEach((element) => {
+      elements.forEach((element) => {
         element.classList.add('hidden');
       });
     };
@@ -158,23 +158,28 @@ const indikator = {
         checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
       });
 
+      let changeHandler = () => {
+        checkBoxIds.forEach((checkBox) => {
+          // if checkbox has class 'activeCheckbox'
+          if (
+            document
+              .querySelector(checkBox)
+              .classList.contains('activeCheckbox')
+          ) {
+            console.log('hide them');
+            hideControlledItems();
+          } else {
+            console.log('show them');
+            showControlledItems();
+          }
+        });
+      };
+
       let form = document.querySelector('form');
       if (form) {
-        form.addEventListener('change', () => {
-          checkBoxIds.forEach((checkBox) => {
-            // if checkbox has class 'activeCheckbox'
-            if (
-              document
-                .querySelector(checkBox)
-                .classList.contains('activeCheckbox')
-            ) {
-              hideControlledItems();
-            } else {
-              showControlledItems();
-            }
-          });
-        });
+        form.addEventListener('change', changeHandler);
       }
+      changeHandler();
     }
   },
   updateTextInputs: function () {
@@ -194,11 +199,11 @@ const indikator = {
       "input[type='text'].responsiveInput"
     );
     if (inputTarget) {
-      inputTarget.addEventListener('input', updateCorrespondingInput());
+      inputTarget.addEventListener('input', updateCorrespondingInput);
     }
     let changeTarget = document.querySelector('.responsiveInput');
     if (changeTarget) {
-      changeTarget.addEventListener('change', updateCorrespondingInput());
+      changeTarget.addEventListener('change', updateCorrespondingInput);
     }
   },
 
