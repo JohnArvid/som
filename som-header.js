@@ -129,6 +129,9 @@ const indikator = {
     if (checkBoxLabels.length > 0) {
       debugger;
       let controlledClass = '.controlled';
+      let clickableItems = document.querySelectorAll(
+        '.cbController .fakeInputRow label.typeOther'
+      );
       let allAnchors = document.querySelectorAll('.cbController a.fakeInput');
       let checkBoxIds = [];
       let inputIds = [];
@@ -178,7 +181,9 @@ const indikator = {
         });
       };
 
-      checkBoxLabels.forEach((item) => item.addEventListener('click', changeHandler));
+      clickableItems.forEach((item) =>
+        item.addEventListener('click', changeHandler)
+      );
       allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
 
       changeHandler();
