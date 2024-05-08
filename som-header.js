@@ -129,9 +129,9 @@ const indikator = {
     if (checkBoxLabels.length > 0) {
       debugger;
       let controlledClass = '.controlled';
-      let clickableItems = document.querySelectorAll(
-        '.cbController .fakeInputRow label.typeOther'
-      );
+      let clickableItems = Array.from(
+        document.querySelectorAll('.cbController .cellAnsweralternatives')
+      ).filter((node) => node.querySelector('label.typeOther'));
       let allAnchors = document.querySelectorAll('.cbController a.fakeInput');
       let checkBoxIds = [];
       let inputIds = [];
