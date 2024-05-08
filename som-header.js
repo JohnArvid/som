@@ -128,8 +128,8 @@ const indikator = {
 
     if (checkBoxLabels) {
       let controlledClass = '.controlled';
-      let items = document.getElementById('items');
-      let allAnchors = document.querySelectorAll('a.fakeInput');
+      let items = document.querySelectorAll('.controlled');
+      let allAnchors = document.querySelectorAll('.cbController a.fakeInput');
       let checkBoxIds = [];
       let inputIds = [];
 
@@ -137,6 +137,7 @@ const indikator = {
         ? '.responsiveMatrixCell'
         : '.responsiveMatrixWeb';
 
+      //  det här funkar väl inte?
       let elements =
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
@@ -177,7 +178,7 @@ const indikator = {
         });
       };
 
-      items.addEventListener('change', changeHandler);
+      items.forEach((item) => item.addEventListener('click', changeHandler));
       allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
 
       changeHandler();
