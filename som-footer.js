@@ -2,7 +2,6 @@
 function som() {
   'use strict';
   console.log('som() running');
-  debugger;
   indikator.setNumericKeyboard();
   indikator.excludeCellOnlyFromAccordion();
   indikator.updateTextInputs();
