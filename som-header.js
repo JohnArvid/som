@@ -127,6 +127,7 @@ const indikator = {
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
 
     if (checkBoxLabels) {
+      debugger;
       let controlledClass = '.controlled';
       let allAnchors = document.querySelectorAll('.cbController a.fakeInput');
       let checkBoxIds = [];
