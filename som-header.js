@@ -145,15 +145,9 @@ const indikator = {
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
 
-      const hideControlledItems = () => {
+      const toggleControlledItems = () => {
         elements.forEach((element) => {
-          element.classList.add('hidden');
-        });
-      };
-
-      const showControlledItems = () => {
-        elements.forEach((element) => {
-          element.classList.remove('hidden');
+          element.classList.toggle('hidden');
         });
       };
 
@@ -166,18 +160,8 @@ const indikator = {
       let changeHandler = () => {
         inputIds.forEach((input, i) => {
           // if checkbox has class 'activeCheckbox'
-          if (
-            document.getElementById(input).checked ||
-            document
-              .querySelector(checkBoxIds[i])
-              .classList.contains('activeCheckbox')
-          ) {
-            console.log('hide them');
-            hideControlledItems();
-          } else {
-            console.log('show them');
-            showControlledItems();
-          }
+          console.log('toggle them');
+          toggleControlledItems();
         });
       };
 
