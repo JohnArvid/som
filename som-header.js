@@ -157,14 +157,26 @@ const indikator = {
       });
 
       // add the eventlisteners on the checkboxes and use e.target in handler
-      let changeHandler = () => {
+      const changeHandler = () => {
         inputIds.forEach((input, i) => {
           // if checkbox has class 'activeCheckbox'
           console.log('toggle them');
           toggleControlledItems();
         });
       };
+      
+      function checkBoxActive() {
+        for (let i = 0; i > allAnchors.length; i++) {
+          return allAnchors[i].classList.contains('activeCheckbox');
+        }
+        return false;
+      }
 
+      function initialCheck() {
+        if (checkBoxActive()) {
+          toggleControlledItems();
+        }
+      }
       // These events happen before the input is actually set to "checked"
       // Which means i either have to use "change" events or check for something else in the handler
       clickableItems.forEach((item) =>
@@ -172,7 +184,8 @@ const indikator = {
       );
       allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
 
-      changeHandler();
+      initialCheck();
+      
     }
   },
 
