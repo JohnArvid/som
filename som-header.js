@@ -256,6 +256,7 @@ const indikator = {
   // In need of refactoring!
   // Not only does it handle accordion functionality
   // it also syncs state between desktop and mobilequestions
+  // seems to be working as is...
   accordion: function () {
     debugger;
     let i = 0;
