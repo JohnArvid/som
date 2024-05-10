@@ -3,6 +3,8 @@
 // $.each is a simple iteration construct to loop
 // over an array, collection or object
 
+//Edge function, don't think it's used since 2022. Then only in gbg ca Q3001
+
 function controllingArrays(
   desktopControllers,
   mobileControllers,
@@ -253,6 +255,7 @@ const indikator = {
 
   // In need of refactoring!
   accordion: function () {
+    debugger;
     let i = 0;
     let desktopQuestions = [];
     let mobileQuestions = [];
@@ -260,20 +263,23 @@ const indikator = {
     let passiveQid;
     let qindex;
 
-    document
-      .querySelectorAll('.responsiveMatrixWeb a.reference')
-      .forEach((element) => {
-        desktopQuestions.push(element.getAttribute('name').replace('ref', ''));
-      });
+    function pushQuestionIds(type) {
+      let className =
+        type === 'desktop' ? '.responsiveMatrixWeb' : '.responsiveMatrixCell';
+      let questionArray =
+        type === 'desktop' ? desktopQuestions : mobileQuestions;
 
-    // $(".responsiveMatrixWeb a.reference").each( function(index) {
-    // desktopQuestions.push($(this).attr("name").replace("ref",""))
-    // });
-    $('.responsiveMatrixCell a.reference').each(function (index) {
-      mobileQuestions.push($(this).attr('name').replace('ref', ''));
-    });
+      document
+        .querySelectorAll(className + ' a.reference')
+        .forEach((element) => {
+          questionArray.push(element.getAttribute('name').replace('ref', ''));
+        });
+    }
 
-    function jq(id) {
+    pushQuestionIds('desktop');
+    pushQuestionIds('mobile');
+
+    function escapeSpecialCharacters(id) {
       return '#' + id.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
     }
 
@@ -338,15 +344,13 @@ const indikator = {
           : (passiveQid = mobileQuestions[qindex]);
 
         if (e.target.checked == false) {
-          $(jq(e.target.id.replace(activeQid, passiveQid))).attr(
-            'checked',
-            false
-          );
+          $(
+            escapeSpecialCharacters(e.target.id.replace(activeQid, passiveQid))
+          ).attr('checked', false);
         } else if (e.target.checked == true) {
-          $(jq(e.target.id.replace(activeQid, passiveQid))).attr(
-            'checked',
-            true
-          );
+          $(
+            escapeSpecialCharacters(e.target.id.replace(activeQid, passiveQid))
+          ).attr('checked', true);
         }
       }
     );
