@@ -181,6 +181,8 @@ const indikator = {
         });
       };
 
+      // These events happen before the input is actually set to "checked"
+      // Which means i either have to use "change" events or check for something else in the handler
       clickableItems.forEach((item) =>
         item.addEventListener('click', changeHandler)
       );
