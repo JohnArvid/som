@@ -254,11 +254,16 @@ const indikator = {
   },
 
   // In need of refactoring!
+  // Not only does it handle accordion functionality
+  // it also syncs state between desktop and mobilequestions
   accordion: function () {
     debugger;
     let i = 0;
-    let desktopQuestions = [];
-    let mobileQuestions = [];
+    let desktopQuestionIds = [];
+    let mobileQuestionIds = [];
+    let simpleQuestionGridItems = document.querySelectorAll(
+      '.simpleQuestionGridItem'
+    );
     let activeQid;
     let passiveQid;
     let qindex;
@@ -267,7 +272,7 @@ const indikator = {
       let className =
         type === 'desktop' ? '.responsiveMatrixWeb' : '.responsiveMatrixCell';
       let questionArray =
-        type === 'desktop' ? desktopQuestions : mobileQuestions;
+        type === 'desktop' ? desktopQuestionIds : mobileQuestionIds;
 
       document
         .querySelectorAll(className + ' a.reference')
@@ -276,24 +281,33 @@ const indikator = {
         });
     }
 
+    // create arrays of questionIDs for desktop/mobile
     pushQuestionIds('desktop');
     pushQuestionIds('mobile');
 
+    // utility for escaping special css-selector characters
     function escapeSpecialCharacters(id) {
       return '#' + id.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
     }
 
-    if ($('.simpleQuestionGridItem').length > 1 && mobileQuestions.length > 0) {
+    if (
+      simpleQuestionGridItems.length > 1 &&
+      mobileQuestionIds.length > 0
+    ) {
       //Ge klassen activeItem till första frågan
-      $('.simpleQuestionGridItem').first().addClass('activeItem');
+      simpleQuestionGridItems[0].classList.add('activeItem');
+
+      //jQuery animation slideUp
       $('.simpleQuestionGridItem:not(.activeItem)')
         .find('.QuestionTable')
-        .slideUp('slow');
-      //Göm alla andra frågor
-      $('.simpleQuestionGridItem').each(function (index) {
-        $(this).attr('id', 'gridQuestion' + index);
+        .slideUp();
+
+      // assign comprehensive ids to all mobilequestions
+      simpleQuestionGridItems.forEach( (node, index) => {
+        node.setAttribute('id', 'gridQuestion' + index);
       });
 
+      // eventListener click 
       $('.simpleQuestionGridItem').click(function () {
         if ($(this).hasClass('activeItem')) {
           $(this)
@@ -307,7 +321,6 @@ const indikator = {
           $('#gridQuestion' + nextIndex)
             .find('.QuestionTable')
             .slideDown('slow');
-          //$(".activeItem")[0].scrollIntoView();
         } else {
           $('.activeItem').find('.QuestionTable').slideUp('slow');
           $('.activeItem').removeClass('activeItem');
@@ -315,33 +328,36 @@ const indikator = {
             .addClass('activeItem')
             .find('.QuestionTable')
             .slideDown('slow');
-          //$(".activeItem")[0].scrollIntoView();
         }
         return;
       });
 
+      // fix to catch when anchor is clicked instead?
+      // it looks like it would trigger click on active if ANY 'a' is clicked which can't be right. 
       $('.simpleQuestionGridItem a').click(function () {
         $('.activeItem').click();
       });
     }
 
+    //  add change listener on cell desktop or mobile questions
     $(isMobile.matches ? '.responsiveMatrixCell' : '.responsiveMatrixWeb').on(
       'change',
       function (e) {
         let changedVar = e.target.id.match(/^Q[0-9]+/g)[0];
         isMobile.matches
-          ? (qindex = mobileQuestions.indexOf(changedVar))
-          : (qindex = desktopQuestions.indexOf(changedVar));
+          ? (qindex = mobileQuestionIds.indexOf(changedVar))
+          : (qindex = desktopQuestionIds.indexOf(changedVar));
 
+        // now this is some mysterious stuff...
         i++;
 
         isMobile.matches
-          ? (activeQid = mobileQuestions[qindex])
-          : (activeQid = desktopQuestions[qindex]);
+          ? (activeQid = mobileQuestionIds[qindex])
+          : (activeQid = desktopQuestionIds[qindex]);
 
         isMobile.matches
-          ? (passiveQid = desktopQuestions[qindex])
-          : (passiveQid = mobileQuestions[qindex]);
+          ? (passiveQid = desktopQuestionIds[qindex])
+          : (passiveQid = mobileQuestionIds[qindex]);
 
         if (e.target.checked == false) {
           $(
