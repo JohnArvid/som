@@ -127,7 +127,6 @@ const indikator = {
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
 
     if (checkBoxLabels.length > 0) {
-      debugger;
       let controlledClass = '.controlled';
       let clickableItems = Array.from(
         document.querySelectorAll('.cbController .cellAnsweralternatives')
@@ -140,7 +139,6 @@ const indikator = {
         ? '.responsiveMatrixCell'
         : '.responsiveMatrixWeb';
 
-      //  det här funkar väl inte?
       let elements =
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
@@ -160,7 +158,6 @@ const indikator = {
       const changeHandler = () => {
         inputIds.forEach((input, i) => {
           // if checkbox has class 'activeCheckbox'
-          console.log('toggle them');
           toggleControlledItems();
         });
       };
