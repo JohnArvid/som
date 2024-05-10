@@ -164,10 +164,11 @@ const indikator = {
           toggleControlledItems();
         });
       };
-      
+
       function checkBoxActive() {
-        for (let i = 0; i > allAnchors.length; i++) {
-          return allAnchors[i].classList.contains('activeCheckbox');
+        // needs to check for checked prop instead?
+        for (let i = 0; i > inputIds.length; i++) {
+          return document.getElementById(inputIds[i]).checked;
         }
         return false;
       }
@@ -177,15 +178,13 @@ const indikator = {
           toggleControlledItems();
         }
       }
-      // These events happen before the input is actually set to "checked"
-      // Which means i either have to use "change" events or check for something else in the handler
+
       clickableItems.forEach((item) =>
         item.addEventListener('click', changeHandler)
       );
       allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
 
       initialCheck();
-      
     }
   },
 
