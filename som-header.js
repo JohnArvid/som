@@ -168,7 +168,9 @@ const indikator = {
       function checkBoxActive() {
         // needs to check for checked prop instead?
         for (let i = 0; i > inputIds.length; i++) {
-          return document.getElementById(inputIds[i]).checked;
+          if (document.getElementById(inputIds[i]).checked) {
+            return true;
+          }
         }
         return false;
       }
