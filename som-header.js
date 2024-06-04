@@ -126,9 +126,10 @@ const indikator = {
     }
   },
 
-  excludeCellOnlyFromAccordion: function () {
+  // Previous class name was 'cellOnly' updated to 'ejDragspel'
+  excludeFromAccordion: function () {
     const elements = document.querySelectorAll(
-      '.cellOnly .simpleQuestionGridItem'
+      '.ejDragspel .simpleQuestionGridItem'
     );
     elements.forEach((element) => {
       element.classList.remove('simpleQuestionGridItem');
