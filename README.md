@@ -1,9 +1,10 @@
 # som
 
-scripts and styles for som
+JS och CSS för SOM-undersökningarna
 
-classes to add in GUI:
-- 'responsiveMatrixCell'
-- 'responsiveMatrixWeb'
-- 'cbController' is added in combination with setting type = other on checkboxes to control (show/hide items)
-- 'controlled' is added to items that are controlled (shown/hidden) by checkbox
+Klasser att lägga till manuellt i RA
+- 'responsiveMatrixCell' - precis som tidigare
+- 'responsiveMatrixWeb' - precis som tidigare
+- 'cbController' läggs på frågan i kombination med att sätta 'type' = 'other' på checkboxalternativ för visa/dölja en annan fråga
+- 'controlled' läggs på frågan som ska kontrolleras av frågan med klassen 'cbController'
+- 'ejDragspel' på gridfrågor som inte ska inkluderas i dragspelsfunktionalitet, hade tidigare klassen 'cellOnly'

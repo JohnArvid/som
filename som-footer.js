@@ -3,7 +3,7 @@ function som() {
   'use strict';
   console.log('som() running');
   indikator.setNumericKeyboard();
-  indikator.excludeCellOnlyFromAccordion();
+  indikator.excludeFromAccordion();
   indikator.updateTextInputs();
   indikator.removeZebra();
   indikator.alwaysShowOpenFields();
