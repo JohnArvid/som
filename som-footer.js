@@ -9,7 +9,7 @@ function som() {
   indikator.alwaysShowOpenFields();
   indikator.checkBoxFilters();
   indikator.accordion();
-  controllingArrays();
+  indikator.controllingArrays();
   console.log('scripts ran');
 }
 
