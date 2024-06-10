@@ -1,11 +1,9 @@
-
 const isMobile = window.matchMedia(
   'only screen and(max-device-width: 568px), only screen and (max-width: 568px)'
 );
 
 const indikator = {
-  controllingArrays: function() {
-
+  controllingArrays: function () {
     let desktopControllers = [];
     let mobileControllers = [];
     // Populera desktopControllers med frågeid + svarsalternativ
@@ -20,7 +18,7 @@ const indikator = {
             )
           )
       );
-  
+
     // Populera mobileControllers med frågeid + svarsalternativ
     document
       .querySelectorAll('.mobileController')
@@ -29,34 +27,34 @@ const indikator = {
           .querySelectorAll('label.typeOther')
           .forEach((alternative) => mobileControllers.push(alternative.htmlFor))
       );
-  
+
     if (desktopControllers.length > 0 || mobileControllers.length > 0) {
       let controlledClass = '.controlled';
-      let hideClassOnly = '';
       let controlIsActive = false;
       let responsiveClass = isMobile.matches
         ? '.responsiveMatrixCell'
         : '.responsiveMatrixWeb';
-  
+
       let elements =
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
-  
+
       const hideControlledItems = () => {
         elements.forEach((element) => {
-            element.classList.add('hidden');
-          }
-        );
+          element.classList.add('hidden');
+        });
       };
-  
+
       const showControlledItems = () => {
         elements.forEach((element) => {
-            element.classList.remove('hidden');
-          }
-        );
+          element.classList.remove('hidden');
+        });
       };
-      //uppdatera controlIsActive
-  
+
+      // uppdatera controlIsActive
+      // behöver bara kolla desktopControllers
+      // eftersom mobile och desktop synkas, 
+      // om det finns några mobileControllers
       desktopControllers.forEach((controller) => {
         if (
           document
@@ -66,67 +64,72 @@ const indikator = {
           controlIsActive = true;
         }
       });
-  
-      //visa dölj initialt beroende på controlIsActive
-      // gör logik och flöde tydligare
+
+
       if (controlIsActive) {
         hideControlledItems();
       }
-  
-      //när formuläret uppdateras
+
       $('form').change(function () {
-        controlIsActive = false;
-        if (isMobile.matches) {
-          mobileControllers.forEach((controller, index) => {
-            if (
-              $("[name='setvalue" + controller + "']").hasClass(
-                'activeRadio' || 'activeRadiocustom'
-              )
-            ) {
-              $("[name='setvalue" + desktopControllers[index] + "']").addClass(
-                'activeRadio'
-              );
-              $("[name='" + desktopControllers[index] + "']").prop(
-                'checked',
-                'true'
-              );
-            } else {
-              $("[name='setvalue" + desktopControllers[index] + "']").removeClass(
-                ['activeRadio', 'activeRadiocustom']
-              );
-              $("[name='" + desktopControllers[index] + "']").prop(
-                'checked',
-                'false'
-              );
-            }
-          });
-        } else {
-          desktopControllers.forEach((controller, index) => {
-            if (
-              $("[name='setvalue" + controller + "']").hasClass(
-                'activeRadio' || 'activeRadiocustom'
-              )
-            ) {
-              $("[name='setvalue" + mobileControllers[index] + "']").addClass(
-                'activeRadio'
-              );
-              $("[name='" + mobileControllers[index] + "']").prop(
-                'checked',
-                'true'
-              );
-            } else {
-              $("[name='setvalue" + mobileControllers[index] + "']").removeClass([
-                'activeRadio',
-                'activeRadiocustom',
-              ]);
-              $("[name='" + mobileControllers[index] + "']").prop(
-                'checked',
-                'false'
-              );
-            }
-          });
+        // Synka desktop- och mobileControllers när formuläret uppdateras
+        // om det finns några mobileControllers
+        // de behöver synkas här eftersom filtrerande mobilfrågor är 
+        // exkluderade från accordion-grejen
+        if (mobileControllers.length > 0) {
+          controlIsActive = false;
+          if (isMobile.matches) {
+            mobileControllers.forEach((controller, index) => {
+              if (
+                $("[name='setvalue" + controller + "']").hasClass(
+                  'activeRadio' || 'activeRadiocustom'
+                )
+              ) {
+                $(
+                  "[name='setvalue" + desktopControllers[index] + "']"
+                ).addClass('activeRadio');
+                $("[name='" + desktopControllers[index] + "']").prop(
+                  'checked',
+                  'true'
+                );
+              } else {
+                $(
+                  "[name='setvalue" + desktopControllers[index] + "']"
+                ).removeClass(['activeRadio', 'activeRadiocustom']);
+                $("[name='" + desktopControllers[index] + "']").prop(
+                  'checked',
+                  'false'
+                );
+              }
+            });
+          } else {
+            desktopControllers.forEach((controller, index) => {
+              if (
+                $("[name='setvalue" + controller + "']").hasClass(
+                  'activeRadio' || 'activeRadiocustom'
+                )
+              ) {
+                $("[name='setvalue" + mobileControllers[index] + "']").addClass(
+                  'activeRadio'
+                );
+                $("[name='" + mobileControllers[index] + "']").prop(
+                  'checked',
+                  'true'
+                );
+              } else {
+                $(
+                  "[name='setvalue" + mobileControllers[index] + "']"
+                ).removeClass(['activeRadio', 'activeRadiocustom']);
+                $("[name='" + mobileControllers[index] + "']").prop(
+                  'checked',
+                  'false'
+                );
+              }
+            });
+          }
         }
-  
+
+        // för varje desktopController - kolla om den är aktiv
+        // isf sätt controlIsActive till true
         desktopControllers.forEach((controller) => {
           if (
             $("[name='setvalue" + controller + "']").hasClass(
@@ -136,7 +139,9 @@ const indikator = {
             controlIsActive = true;
           }
         });
-  
+
+        // sen kollar vi om controlIsActive
+        // och visar/döljer kontrollerade items baserat på det
         if (controlIsActive) {
           hideControlledItems();
         } else {
@@ -306,10 +311,7 @@ const indikator = {
       return '#' + id.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
     }
 
-    if (
-      simpleQuestionGridItems.length > 1 &&
-      mobileQuestionIds.length > 0
-    ) {
+    if (simpleQuestionGridItems.length > 1 && mobileQuestionIds.length > 0) {
       //Ge klassen activeItem till första frågan
       simpleQuestionGridItems[0].classList.add('activeItem');
 
@@ -319,11 +321,11 @@ const indikator = {
         .slideUp();
 
       // assign comprehensive ids to all mobilequestions
-      simpleQuestionGridItems.forEach( (node, index) => {
+      simpleQuestionGridItems.forEach((node, index) => {
         node.setAttribute('id', 'gridQuestion' + index);
       });
 
-      // eventListener click 
+      // eventListener click
       $('.simpleQuestionGridItem').click(function () {
         if ($(this).hasClass('activeItem')) {
           $(this)
@@ -349,7 +351,7 @@ const indikator = {
       });
 
       // fix to catch when anchor is clicked instead?
-      // it looks like it would trigger click on active if ANY 'a' is clicked which can't be right. 
+      // it looks like it would trigger click on active if ANY 'a' is clicked which can't be right.
       $('.simpleQuestionGridItem a').click(function () {
         $('.activeItem').click();
       });
