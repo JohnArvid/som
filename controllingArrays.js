@@ -34,9 +34,6 @@ function controllingArrays() {
     );
 
   //uppdatera controlIsActive
-  debugger;
-
-  
 
   desktopControllers.forEach((controller) => {
     if (
@@ -47,7 +44,6 @@ function controllingArrays() {
       controlIsActive = true;
     }
   });
-
 
   //visa dölj initialt beroende på controlIsActive
   if (controlIsActive) {
@@ -66,6 +62,7 @@ function controllingArrays() {
 
   //när formuläret uppdateras
   $('form').change(function () {
+    debugger;
     controlIsActive = false;
     if (isMobile.matches) {
       mobileControllers.forEach((controller, index) => {
