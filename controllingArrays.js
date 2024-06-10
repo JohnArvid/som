@@ -28,7 +28,6 @@ function controllingArrays() {
 
   if (desktopControllers.length > 0 || mobileControllers.length > 0) {
     let controlledClass = '.controlled';
-    let hideClassOnly = '';
     let controlIsActive = false;
     let responsiveClass = isMobile.matches
       ? '.responsiveMatrixCell'
@@ -70,6 +69,7 @@ function controllingArrays() {
     }
 
     //när formuläret uppdateras
+    
     $('form').change(function () {
       debugger;
       controlIsActive = false;
