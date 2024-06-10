@@ -4,13 +4,18 @@
 //   'only screen and(max-device-width: 568px), only screen and (max-width: 568px)'
 // );
 
-function controllingArrays(
+function controllingArrays() {
   // desktopControllers,
   // mobileControllers,
   // hideClass,
   // hideClassOnly
-) {
-  console.log('controllingArrays ran')
+  console.log('controllingArrays ran');
+  let desktopControllers = [];
+
+  // Skapa arrays av de controllerande svarsalternativen i formen:
+  // Qid:svarsalternativ
+  console.log(document.querySelectorAll('.desktopController'))
+
   var controlIsActive = 0;
   //uppdatera controlIsActive
   $.each(desktopControllers, function (index, value) {
