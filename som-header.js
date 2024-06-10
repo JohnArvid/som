@@ -75,7 +75,6 @@ const indikator = {
   
       //när formuläret uppdateras
       $('form').change(function () {
-        debugger;
         controlIsActive = false;
         if (isMobile.matches) {
           mobileControllers.forEach((controller, index) => {
@@ -146,7 +145,7 @@ const indikator = {
       });
     }
   },
-  
+
   checkBoxFilters: function () {
     // CSS class  'cbController' is added to item with check box that is controlling other question
     // plus the alternative is marked as 'other' in GUI
@@ -262,10 +261,6 @@ const indikator = {
         element.setAttribute('type', 'text');
         element.setAttribute('pattern', '[0-9]*');
       });
-    } else {
-      // console.log(
-      //   `setNumericKeyBoard says: elements.length is ${elements.length}`
-      // );
     }
   },
 
@@ -280,8 +275,6 @@ const indikator = {
   },
 
   accordion: function () {
-    // debugger;
-    // let i = 0;
     let desktopQuestionIds = [];
     let mobileQuestionIds = [];
     let simpleQuestionGridItems = document.querySelectorAll(
@@ -370,9 +363,6 @@ const indikator = {
         isMobile.matches
           ? (qindex = mobileQuestionIds.indexOf(changedVar))
           : (qindex = desktopQuestionIds.indexOf(changedVar));
-
-        // now this is some mysterious stuff...
-        // i++;
 
         isMobile.matches
           ? (activeQid = mobileQuestionIds[qindex])
