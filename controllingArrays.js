@@ -44,12 +44,19 @@ function controllingArrays() {
       document.querySelectorAll(controlledClass + responsiveClass) ||
       document.querySelectorAll(controlledClass);
 
-    const toggleControlledItems = () => {
+    const hideControlledItems = () => {
       elements.forEach((element) => {
-        element.classList.toggle('hidden');
-      });
+          element.classList.add('hidden');
+        }
+      );
     };
 
+    const showControlledItems = () => {
+      elements.forEach((element) => {
+          element.classList.remove('hidden');
+        }
+      );
+    };
     //uppdatera controlIsActive
 
     desktopControllers.forEach((controller) => {
@@ -65,7 +72,7 @@ function controllingArrays() {
     //visa dölj initialt beroende på controlIsActive
     // gör logik och flöde tydligare
     if (controlIsActive) {
-      toggleControlledItems();
+      hideControlledItems();
     }
 
     //när formuläret uppdateras
@@ -134,17 +141,9 @@ function controllingArrays() {
       });
 
       if (controlIsActive) {
-        $(
-          isMobile.matches
-            ? '.responsiveMatrixCell' + controlledClass + ',' + hideClassOnly
-            : '.responsiveMatrixWeb' + controlledClass + ', ' + hideClassOnly
-        ).hide();
+        hideControlledItems();
       } else {
-        $(
-          isMobile.matches
-            ? '.responsiveMatrixCell' + controlledClass + ',' + hideClassOnly
-            : '.responsiveMatrixWeb' + controlledClass + ', ' + hideClassOnly
-        ).show();
+        showControlledItems();
       }
     });
   }
