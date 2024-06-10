@@ -219,7 +219,7 @@ const indikator = {
       });
     }
 
-    //  add change listener on cell desktop or mobile questions
+    //  add change listener on desktop or mobile questions
     $(isMobile.matches ? '.responsiveMatrixCell' : '.responsiveMatrixWeb').on(
       'change',
       function (e) {
