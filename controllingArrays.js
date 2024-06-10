@@ -15,6 +15,7 @@ function controllingArrays() {
 
   // Populera desktopControllers med frågeid + svarsalternativ
   function makeControllerArray(arr, className) {
+    debugger;
     document
       .querySelectorAll(className)
       .forEach((controller) =>
@@ -26,23 +27,11 @@ function controllingArrays() {
       );
   }
 
-  // document
-  //   .querySelectorAll('.desktopController')
-  //   .forEach((controller) =>
-  //     controller
-  //       .querySelectorAll('.typeOther a')
-  //       .forEach((alternative) =>
-  //         desktopControllers.push(
-  //           controller.children[0].text + '.1:' + alternative.text
-  //         )
-  //       )
-  //   );
-
   makeControllerArray(desktopControllers, '.desktopController');
   makeControllerArray(mobileControllers, '.mobileController');
 
-  console.log('desktopControllers: ', desktopControllers)
-  console.log('mobileControllers: ', mobileControllers)
+  console.log('desktopControllers: ', desktopControllers);
+  console.log('mobileControllers: ', mobileControllers);
   //////////////////////////////////////
 
   var controlIsActive = 0;
