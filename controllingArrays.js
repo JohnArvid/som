@@ -5,11 +5,8 @@
 // );
 
 function controllingArrays() {
-  // desktopControllers,
-  // mobileControllers,
-  // hideClass,
-  // hideClassOnly
-  console.log('controllingArrays ran');
+  let hideClass = '.controlled';
+  let hideClassOnly = '';
   let desktopControllers = [];
   let mobileControllers = [];
 
@@ -36,9 +33,9 @@ function controllingArrays() {
 
   //////////////////////////////////////
 
-  let controlIsActive = false
+  let controlIsActive = false;
   //uppdatera controlIsActive
-  desktopControllers.forEach( controller => {
+  desktopControllers.forEach((controller) => {
     if (
       $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
       $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
@@ -66,7 +63,7 @@ function controllingArrays() {
   $('form').change(function () {
     controlIsActive = false;
     if (isMobile.matches) {
-      mobileControllers.forEach( (controller, index) => {
+      mobileControllers.forEach((controller, index) => {
         if (
           $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
           $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
@@ -90,7 +87,7 @@ function controllingArrays() {
         }
       });
     } else {
-      desktopControllers.forEach( (controller, index) => {
+      desktopControllers.forEach((controller, index) => {
         if (
           $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
           $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
@@ -115,7 +112,7 @@ function controllingArrays() {
       });
     }
 
-    desktopControllers.forEach( (controller, index) => {
+    desktopControllers.forEach((controller, index) => {
       if (
         $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
         $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
