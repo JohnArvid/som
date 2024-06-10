@@ -9,6 +9,7 @@ function controllingArrays() {
   let hideClassOnly = '';
   let desktopControllers = [];
   let mobileControllers = [];
+  let controlIsActive = false;
 
   // Populera desktopControllers med frågeid + svarsalternativ
   document
@@ -22,6 +23,7 @@ function controllingArrays() {
           )
         )
     );
+
   // Populera mobileControllers med frågeid + svarsalternativ
   document
     .querySelectorAll('.mobileController')
@@ -31,19 +33,21 @@ function controllingArrays() {
         .forEach((alternative) => mobileControllers.push(alternative.htmlFor))
     );
 
-  //////////////////////////////////////
-
-  let controlIsActive = false;
   //uppdatera controlIsActive
   debugger;
+
+  
+
   desktopControllers.forEach((controller) => {
     if (
-      $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
-      $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
+      document
+        .querySelector("[name='setvalue" + controller + "']")
+        .classList.contains('activeRadio' || 'activeRadiocustom')
     ) {
       controlIsActive = true;
     }
   });
+
 
   //visa dölj initialt beroende på controlIsActive
   if (controlIsActive) {
