@@ -35,6 +35,7 @@ function controllingArrays() {
 
   let controlIsActive = false;
   //uppdatera controlIsActive
+  debugger;
   desktopControllers.forEach((controller) => {
     if (
       $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
@@ -44,7 +45,7 @@ function controllingArrays() {
     }
   });
 
-  //visa dölj beroende på controlIsActive
+  //visa dölj initialt beroende på controlIsActive
   if (controlIsActive) {
     $(
       isMobile.matches
@@ -112,7 +113,7 @@ function controllingArrays() {
       });
     }
 
-    desktopControllers.forEach((controller, index) => {
+    desktopControllers.forEach((controller) => {
       if (
         $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
         $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')

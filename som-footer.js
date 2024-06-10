@@ -2,7 +2,6 @@
 function som() {
   'use strict';
   console.log('som() running');
-  controllingArrays();
   indikator.setNumericKeyboard();
   indikator.excludeFromAccordion();
   indikator.updateTextInputs();
@@ -10,6 +9,7 @@ function som() {
   indikator.alwaysShowOpenFields();
   indikator.checkBoxFilters();
   indikator.accordion();
+  controllingArrays();
   console.log('scripts ran');
 }
 
