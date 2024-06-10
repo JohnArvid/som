@@ -14,21 +14,25 @@ function controllingArrays() {
   let mobileControllers = [];
 
   // Populera desktopControllers med frågeid + svarsalternativ
-  function makeControllerArray(arr, className) {
-    debugger;
-    document
-      .querySelectorAll(className)
-      .forEach((controller) =>
-        controller
-          .querySelectorAll('.typeOther a')
-          .forEach((alternative) =>
-            arr.push(controller.children[0].text + '.1:' + alternative.text)
+  document
+    .querySelectorAll('.desktopController')
+    .forEach((controller) =>
+      controller
+        .querySelectorAll('.typeOther a')
+        .forEach((alternative) =>
+          desktopControllers.push(
+            controller.children[0].text + '.1:' + alternative.text
           )
-      );
-  }
-
-  makeControllerArray(desktopControllers, '.desktopController');
-  makeControllerArray(mobileControllers, '.mobileController');
+        )
+    );
+  // Populera mobileControllers med frågeid + svarsalternativ
+  document
+    .querySelectorAll('.mobileController')
+    .forEach((controller) =>
+      controller
+        .querySelectorAll('label.typeOther')
+        .forEach((alternative) => desktopControllers.push(alternative.text))
+    );
 
   console.log('desktopControllers: ', desktopControllers);
   console.log('mobileControllers: ', mobileControllers);
