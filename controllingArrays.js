@@ -46,6 +46,7 @@ function controllingArrays() {
   });
 
   //visa dölj initialt beroende på controlIsActive
+  // gör logik och flöde tydligare
   if (controlIsActive) {
     $(
       isMobile.matches
