@@ -10,11 +10,13 @@ function controllingArrays() {
   // hideClass,
   // hideClassOnly
   console.log('controllingArrays ran');
-  let desktopControllers = [];
+  let desktopControllers = Array.from(
+    document.querySelectorAll('.desktopController')
+  );
 
   // Skapa arrays av de controllerande svarsalternativen i formen:
   // Qid:svarsalternativ
-  console.log(document.querySelectorAll('.desktopController'))
+  console.log(desktopControllers);
 
   var controlIsActive = 0;
   //uppdatera controlIsActive
