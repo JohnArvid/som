@@ -2,6 +2,7 @@
 function som() {
   'use strict';
   console.log('som() running');
+  controllingArrays();
   indikator.setNumericKeyboard();
   indikator.excludeFromAccordion();
   indikator.updateTextInputs();
