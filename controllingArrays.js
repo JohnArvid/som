@@ -31,7 +31,7 @@ function controllingArrays() {
     .forEach((controller) =>
       controller
         .querySelectorAll('label.typeOther')
-        .forEach((alternative) => mobileControllers.push(alternative.for))
+        .forEach((alternative) => mobileControllers.push(alternative.htmlFor))
     );
 
   console.log('desktopControllers: ', desktopControllers);
