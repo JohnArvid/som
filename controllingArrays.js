@@ -34,23 +34,21 @@ function controllingArrays() {
         .forEach((alternative) => mobileControllers.push(alternative.htmlFor))
     );
 
-  console.log('desktopControllers: ', desktopControllers);
-  console.log('mobileControllers: ', mobileControllers);
   //////////////////////////////////////
 
-  var controlIsActive = 0;
+  let controlIsActive = false
   //uppdatera controlIsActive
-  $.each(desktopControllers, function (index, value) {
+  desktopControllers.forEach( controller => {
     if (
-      $("[name='setvalue" + value + "']").hasClass('activeRadio') ||
-      $("[name='setvalue" + value + "']").hasClass('activeRadiocustom')
+      $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
+      $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
     ) {
-      controlIsActive += 1;
+      controlIsActive = true;
     }
   });
 
   //visa dölj beroende på controlIsActive
-  if (controlIsActive > 0) {
+  if (controlIsActive) {
     $(
       isMobile.matches
         ? '.responsiveMatrixCell' + hideClass + ', ' + hideClassOnly
@@ -66,12 +64,12 @@ function controllingArrays() {
 
   //när formuläret uppdateras
   $('form').change(function () {
-    controlIsActive = 0;
+    controlIsActive = false;
     if (isMobile.matches) {
-      $.each(mobileControllers, function (index, value) {
+      mobileControllers.forEach( (controller, index) => {
         if (
-          $("[name='setvalue" + value + "']").hasClass('activeRadio') ||
-          $("[name='setvalue" + value + "']").hasClass('activeRadiocustom')
+          $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
+          $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
         ) {
           $("[name='setvalue" + desktopControllers[index] + "']").addClass(
             'activeRadio'
@@ -92,10 +90,10 @@ function controllingArrays() {
         }
       });
     } else {
-      $.each(desktopControllers, function (index, value) {
+      desktopControllers.forEach( (controller, index) => {
         if (
-          $("[name='setvalue" + value + "']").hasClass('activeRadio') ||
-          $("[name='setvalue" + value + "']").hasClass('activeRadiocustom')
+          $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
+          $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
         ) {
           $("[name='setvalue" + mobileControllers[index] + "']").addClass(
             'activeRadio'
@@ -117,16 +115,16 @@ function controllingArrays() {
       });
     }
 
-    $.each(desktopControllers, function (index, value) {
+    desktopControllers.forEach( (controller, index) => {
       if (
-        $("[name='setvalue" + value + "']").hasClass('activeRadio') ||
-        $("[name='setvalue" + value + "']").hasClass('activeRadiocustom')
+        $("[name='setvalue" + controller + "']").hasClass('activeRadio') ||
+        $("[name='setvalue" + controller + "']").hasClass('activeRadiocustom')
       ) {
-        controlIsActive += 1;
+        controlIsActive = true;
       }
     });
 
-    if (controlIsActive > 0) {
+    if (controlIsActive) {
       $(
         isMobile.matches
           ? '.responsiveMatrixCell' + hideClass + ',' + hideClassOnly
