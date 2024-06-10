@@ -6,6 +6,7 @@ const indikator = {
   controllingArrays: function () {
     let desktopControllers = [];
     let mobileControllers = [];
+
     // Populera desktopControllers med frågeid + svarsalternativ
     document
       .querySelectorAll('.desktopController')
@@ -29,6 +30,9 @@ const indikator = {
       );
 
     if (desktopControllers.length > 0 || mobileControllers.length > 0) {
+      console.log('desktopControllers: ', desktopControllers);
+      console.log('mobileControllers: ', mobileControllers);
+
       let controlledClass = '.controlled';
       let controlIsActive = false;
       let responsiveClass = isMobile.matches
@@ -39,6 +43,7 @@ const indikator = {
         document.querySelectorAll(controlledClass + responsiveClass) ||
         document.querySelectorAll(controlledClass);
 
+      console.log('controlled elements: ', elements);
       const hideControlledItems = () => {
         elements.forEach((element) => {
           element.classList.add('hidden');
@@ -53,7 +58,7 @@ const indikator = {
 
       // uppdatera controlIsActive
       // behöver bara kolla desktopControllers
-      // eftersom mobile och desktop synkas, 
+      // eftersom mobile och desktop synkas,
       // om det finns några mobileControllers
       desktopControllers.forEach((controller) => {
         if (
@@ -65,7 +70,6 @@ const indikator = {
         }
       });
 
-
       if (controlIsActive) {
         hideControlledItems();
       }
@@ -73,7 +77,7 @@ const indikator = {
       $('form').change(function () {
         // Synka desktop- och mobileControllers när formuläret uppdateras
         // om det finns några mobileControllers
-        // de behöver synkas här eftersom filtrerande mobilfrågor är 
+        // de behöver synkas här eftersom filtrerande mobilfrågor är
         // exkluderade från accordion-grejen
         if (mobileControllers.length > 0) {
           controlIsActive = false;
