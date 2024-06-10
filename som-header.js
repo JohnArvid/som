@@ -120,9 +120,9 @@ const indikator = {
         element.setAttribute('pattern', '[0-9]*');
       });
     } else {
-      console.log(
-        `setNumericKeyBoard says: elements.length is ${elements.length}`
-      );
+      // console.log(
+      //   `setNumericKeyBoard says: elements.length is ${elements.length}`
+      // );
     }
   },
 
@@ -137,8 +137,8 @@ const indikator = {
   },
 
   accordion: function () {
-    debugger;
-    let i = 0;
+    // debugger;
+    // let i = 0;
     let desktopQuestionIds = [];
     let mobileQuestionIds = [];
     let simpleQuestionGridItems = document.querySelectorAll(
@@ -229,7 +229,7 @@ const indikator = {
           : (qindex = desktopQuestionIds.indexOf(changedVar));
 
         // now this is some mysterious stuff...
-        i++;
+        // i++;
 
         isMobile.matches
           ? (activeQid = mobileQuestionIds[qindex])
