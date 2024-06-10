@@ -10,13 +10,40 @@ function controllingArrays() {
   // hideClass,
   // hideClassOnly
   console.log('controllingArrays ran');
-  let desktopControllers = Array.from(
-    document.querySelectorAll('.desktopController')
-  );
+  let desktopControllers = [];
+  let mobileControllers = [];
 
-  // Skapa arrays av de controllerande svarsalternativen i formen:
-  // Qid:svarsalternativ
-  console.log(desktopControllers);
+  // Populera desktopControllers med frågeid + svarsalternativ
+  function makeControllerArray(arr, className) {
+    document
+      .querySelectorAll(className)
+      .forEach((controller) =>
+        controller
+          .querySelectorAll('.typeOther a')
+          .forEach((alternative) =>
+            arr.push(controller.children[0].text + '.1:' + alternative.text)
+          )
+      );
+  }
+
+  // document
+  //   .querySelectorAll('.desktopController')
+  //   .forEach((controller) =>
+  //     controller
+  //       .querySelectorAll('.typeOther a')
+  //       .forEach((alternative) =>
+  //         desktopControllers.push(
+  //           controller.children[0].text + '.1:' + alternative.text
+  //         )
+  //       )
+  //   );
+
+  makeControllerArray(desktopControllers, '.desktopController');
+  makeControllerArray(mobileControllers, '.mobileController');
+
+  console.log('desktopControllers: ', desktopControllers)
+  console.log('mobileControllers: ', mobileControllers)
+  //////////////////////////////////////
 
   var controlIsActive = 0;
   //uppdatera controlIsActive
