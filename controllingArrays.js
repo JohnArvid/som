@@ -1,12 +1,6 @@
 //Controllingarrays
 
-// const isMobile = window.matchMedia(
-//   'only screen and(max-device-width: 568px), only screen and (max-width: 568px)'
-// );
-
 function controllingArrays() {
-  // sortera de här och kolla först om det finns några desktopControllers
-  //  om det inte gör det kan vi hoppa över hela grejen
 
   let desktopControllers = [];
   let mobileControllers = [];
