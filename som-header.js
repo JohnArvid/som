@@ -59,10 +59,12 @@ const indikator = {
         : '.responsiveMatrixWeb';
 
       let elements =
-        document.querySelectorAll(controlledClass + responsiveClass) ||
-        document.querySelectorAll(controlledClass);
+        document.querySelectorAll(controlledClass + responsiveClass).length > 0
+          ? document.querySelectorAll(controlledClass + responsiveClass)
+          : document.querySelectorAll(controlledClass);
 
-      console.log('controlled elements: ', elements);
+      // console.log('controlled elements: ', elements);
+
       const hideControlledItems = () => {
         elements.forEach((element) => {
           element.classList.add('hidden');
