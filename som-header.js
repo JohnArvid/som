@@ -7,29 +7,48 @@ const indikator = {
     let desktopControllers = [];
     let mobileControllers = [];
 
-    // Populera desktopControllers med frågeid + svarsalternativ
-    document
-      .querySelectorAll('.desktopController')
-      .forEach((controller) =>
-        controller
-          .querySelectorAll('.typeOther a')
-          .forEach((alternative) =>
-            desktopControllers.push(
-              controller.children[0].text + '.1:' + alternative.text
-            )
-          )
-      );
+    function populateControllerArrays() {
+      const bothTypes = () => {
+        let controllerElement = document.querySelector('.desktopController');
+        if (controllerElement) {
+          return controllerElement.classList.contains('responsiveMatrixWeb');
+        }
+        return null;
+      };
 
-    // Populera mobileControllers med frågeid + svarsalternativ
-    document
-      .querySelectorAll('.mobileController')
-      .forEach((controller) =>
-        controller
-          .querySelectorAll('label.typeOther')
-          .forEach((alternative) => mobileControllers.push(alternative.htmlFor))
-      );
+      function populateByLabel(arr, className) {
+        document
+          .querySelectorAll(className)
+          .forEach((controller) =>
+            controller
+              .querySelectorAll('label.typeOther')
+              .forEach((alternative) => arr.push(alternative.htmlFor))
+          );
+      }
 
-    if (desktopControllers.length > 0 || mobileControllers.length > 0) {
+      function populateByAlternativeText(arr, className) {
+        document
+          .querySelectorAll(className)
+          .forEach((controller) =>
+            controller
+              .querySelectorAll('.typeOther a')
+              .forEach((alternative) =>
+                arr.push(controller.children[0].text + '.1:' + alternative.text)
+              )
+          );
+      }
+
+      if (bothTypes()) {
+        populateByAlternativeText(desktopControllers, '.desktopController');
+        populateByLabel(mobileControllers, '.mobileController');
+      } else {
+        populateByLabel(desktopControllers, '.desktopController');
+      }
+    }
+
+    populateControllerArrays();
+
+    if (desktopControllers.length > 0) {
       console.log('desktopControllers: ', desktopControllers);
       console.log('mobileControllers: ', mobileControllers);
 
