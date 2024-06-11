@@ -157,9 +157,9 @@ const indikator = {
         // isf sätt controlIsActive till true
         desktopControllers.forEach((controller) => {
           if (
-            $("[name='setvalue" + controller + "']").hasClass(
-              'activeRadio' || 'activeRadiocustom'
-            )
+            document
+              .querySelector("[name='setvalue" + controller + "']")
+              .classList.contains('activeRadio' || 'activeRadiocustom')
           ) {
             controlIsActive = true;
           }
