@@ -49,8 +49,8 @@ const indikator = {
     populateControllerArrays();
 
     if (desktopControllers.length > 0) {
-      console.log('desktopControllers: ', desktopControllers);
-      console.log('mobileControllers: ', mobileControllers);
+      // console.log('desktopControllers: ', desktopControllers);
+      // console.log('mobileControllers: ', mobileControllers);
 
       let controlledClass = '.controlled';
       let controlIsActive = false;
@@ -62,8 +62,6 @@ const indikator = {
         document.querySelectorAll(controlledClass + responsiveClass).length > 0
           ? document.querySelectorAll(controlledClass + responsiveClass)
           : document.querySelectorAll(controlledClass);
-
-      // console.log('controlled elements: ', elements);
 
       const hideControlledItems = () => {
         elements.forEach((element) => {
@@ -81,21 +79,32 @@ const indikator = {
       // behöver bara kolla desktopControllers
       // eftersom mobile och desktop synkas,
       // om det finns några mobileControllers
-      desktopControllers.forEach((controller) => {
-        if (
-          document
+      function updateControlIsActive() {
+        // för varje desktopController - kolla om den är aktiv
+        // isf sätt controlIsActive till true
+        desktopControllers.forEach((controller) => {
+          let condition = document
             .querySelector("[name='setvalue" + controller + "']")
-            .classList.contains('activeRadio' || 'activeRadiocustom')
-        ) {
-          controlIsActive = true;
-        }
-      });
+            .classList.contains('activeRadio' || 'activeRadiocustom');
 
-      if (controlIsActive) {
-        hideControlledItems();
-      } else {
-        showControlledItems();
+          if (condition) {
+            controlIsActive = true;
+          } else {
+            controlIsActive = false;
+          }
+        });
       }
+
+      function toggleVisibilityDependingOnControl() {
+        if (controlIsActive) {
+          hideControlledItems();
+        } else {
+          showControlledItems();
+        }
+      }
+
+      updateControlIsActive();
+      toggleVisibilityDependingOnControl();
 
       $('form').change(function () {
         // Synka desktop- och mobileControllers när formuläret uppdateras
@@ -155,27 +164,8 @@ const indikator = {
           }
         }
 
-        
-        // för varje desktopController - kolla om den är aktiv
-        // isf sätt controlIsActive till true
-        desktopControllers.forEach((controller) => {
-          let condition = document
-            .querySelector("[name='setvalue" + controller + "']")
-            .classList.contains('activeRadio' || 'activeRadiocustom');
-          let conditionAsBool = !!condition;
-
-          if (conditionAsBool) {
-            controlIsActive = true;
-          }
-        });
-
-        // sen kollar vi om controlIsActive
-        // och visar/döljer kontrollerade items baserat på det
-        if (controlIsActive) {
-          hideControlledItems();
-        } else {
-          showControlledItems();
-        }
+        updateControlIsActive();
+        toggleVisibilityDependingOnControl();
       });
     }
   },
