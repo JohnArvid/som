@@ -153,14 +153,16 @@ const indikator = {
           }
         }
 
+        debugger
         // för varje desktopController - kolla om den är aktiv
         // isf sätt controlIsActive till true
         desktopControllers.forEach((controller) => {
-          if (
-            document
-              .querySelector("[name='setvalue" + controller + "']")
-              .classList.contains('activeRadio' || 'activeRadiocustom')
-          ) {
+          let condition = document
+            .querySelector("[name='setvalue" + controller + "']")
+            .classList.contains('activeRadio' || 'activeRadiocustom');
+          let conditionAsBool = !!condition;
+
+          if (conditionAsBool) {
             controlIsActive = true;
           }
         });
