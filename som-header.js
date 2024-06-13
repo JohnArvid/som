@@ -3,7 +3,7 @@ const isMobile = window.matchMedia(
 );
 
 const indikator = {
-  controllingArrays: function () {
+  samePageFilters: function () {
     let desktopControllers = [];
     let mobileControllers = [];
 
@@ -49,11 +49,19 @@ const indikator = {
     populateControllerArrays();
 
     if (desktopControllers.length > 0) {
-      // console.log('desktopControllers: ', desktopControllers);
-      // console.log('mobileControllers: ', mobileControllers);
+      const controlIsActive = () => {
+        desktopControllers.forEach((controller) => {
+          let condition = document
+            .querySelector("[name='setvalue" + controller + "']")
+            .classList.contains('activeRadio' || 'activeRadiocustom');
 
+          if (condition) {
+            return true;
+          }
+          return false;
+        });
+      };
       let controlledClass = '.controlled';
-      let controlIsActive = false;
       let responsiveClass = isMobile.matches
         ? '.responsiveMatrixCell'
         : '.responsiveMatrixWeb';
@@ -75,35 +83,14 @@ const indikator = {
         });
       };
 
-      // uppdatera controlIsActive
-      // behöver bara kolla desktopControllers
-      // eftersom mobile och desktop synkas,
-      // om det finns några mobileControllers
-      function updateControlIsActive() {
-        // för varje desktopController - kolla om den är aktiv
-        // isf sätt controlIsActive till true
-        desktopControllers.forEach((controller) => {
-          let condition = document
-            .querySelector("[name='setvalue" + controller + "']")
-            .classList.contains('activeRadio' || 'activeRadiocustom');
-
-          if (condition) {
-            controlIsActive = true;
-          } else {
-            controlIsActive = false;
-          }
-        });
-      }
-
       function toggleVisibilityDependingOnControl() {
-        if (controlIsActive) {
+        if (controlIsActive()) {
           hideControlledItems();
         } else {
           showControlledItems();
         }
       }
 
-      updateControlIsActive();
       toggleVisibilityDependingOnControl();
 
       $('form').change(function () {
@@ -112,7 +99,6 @@ const indikator = {
         // de behöver synkas här eftersom filtrerande mobilfrågor är
         // exkluderade från accordion-grejen
         if (mobileControllers.length > 0) {
-          controlIsActive = false;
           if (isMobile.matches) {
             mobileControllers.forEach((controller, index) => {
               if (
@@ -164,7 +150,6 @@ const indikator = {
           }
         }
 
-        updateControlIsActive();
         toggleVisibilityDependingOnControl();
       });
     }
