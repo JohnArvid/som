@@ -50,15 +50,9 @@ const indikator = {
 
     if (desktopControllers.length > 0) {
       const controlIsActive = () => {
-        desktopControllers.forEach((controller) => {
-          let condition = document
-            .querySelector("[name='setvalue" + controller + "']")
-            .classList.contains('activeRadio' || 'activeRadiocustom');
-
-          if (condition) {
-            return true;
-          }
-          return false;
+        return desktopControllers.some(controller => {
+          const element = document.querySelector("[name='setvalue" + controller + "']");
+          return element.classList.contains('activeRadio') || element.classList.contains('activeRadiocustom');
         });
       };
       let controlledClass = '.controlled';
