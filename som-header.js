@@ -93,6 +93,8 @@ const indikator = {
 
       if (controlIsActive) {
         hideControlledItems();
+      } else {
+        showControlledItems();
       }
 
       $('form').change(function () {
@@ -153,7 +155,7 @@ const indikator = {
           }
         }
 
-        debugger
+        
         // för varje desktopController - kolla om den är aktiv
         // isf sätt controlIsActive till true
         desktopControllers.forEach((controller) => {
