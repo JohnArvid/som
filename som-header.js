@@ -50,9 +50,14 @@ const indikator = {
 
     if (desktopControllers.length > 0) {
       const controlIsActive = () => {
-        return desktopControllers.some(controller => {
-          const element = document.querySelector("[name='setvalue" + controller + "']");
-          return element.classList.contains('activeRadio') || element.classList.contains('activeRadiocustom');
+        return desktopControllers.some((controller) => {
+          const element = document.querySelector(
+            "[name='setvalue" + controller + "']"
+          );
+          return (
+            element.classList.contains('activeRadio') ||
+            element.classList.contains('activeRadiocustom')
+          );
         });
       };
       let controlledClass = '.controlled';
@@ -169,7 +174,7 @@ const indikator = {
         : '.responsiveMatrixWeb';
 
       let elements =
-        document.querySelectorAll(controlledClass + responsiveClass) ||
+        document.querySelectorAll(controlledClass + responsiveClass, controlledClass + '.open') ||
         document.querySelectorAll(controlledClass);
 
       const toggleControlledItems = () => {
