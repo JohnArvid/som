@@ -161,7 +161,7 @@ const indikator = {
     let checkBoxLabels = document.querySelectorAll(checkBoxClass);
 
     if (checkBoxLabels.length > 0) {
-      let controlledClass = '.controlled';
+      let controlledClass = '.controlled, .controlledOpen';
       let clickableItems = Array.from(
         document.querySelectorAll('.cbController .cellAnsweralternatives')
       ).filter((node) => node.querySelector('label.typeOther'));
@@ -174,7 +174,7 @@ const indikator = {
         : '.responsiveMatrixWeb';
 
       let elements =
-        document.querySelectorAll(controlledClass + responsiveClass, controlledClass + '.open') ||
+        document.querySelectorAll(responsiveClass + controlledClass) ||
         document.querySelectorAll(controlledClass);
 
       const toggleControlledItems = () => {
