@@ -189,12 +189,11 @@ const indikator = {
       });
 
       // add the eventlisteners on the checkboxes and use e.target in handler
-      const changeHandler = () => {
-        inputIds.forEach((input, i) => {
-          // if checkbox has class 'activeCheckbox'
-          toggleControlledItems();
-        });
-      };
+      // const changeHandler = () => {
+      //   inputIds.forEach(() => {
+      //     toggleControlledItems();
+      //   });
+      // };
 
       function checkBoxActive() {
         // needs to check for checked prop instead?
@@ -213,9 +212,9 @@ const indikator = {
       }
 
       clickableItems.forEach((item) =>
-        item.addEventListener('click', changeHandler)
+        item.addEventListener('click', toggleControlledItems)
       );
-      allAnchors.forEach((a) => a.addEventListener('click', changeHandler));
+      allAnchors.forEach((a) => a.addEventListener('click', toggleControlledItems));
 
       initialCheck();
     }
@@ -257,7 +256,7 @@ const indikator = {
     const elements = document.querySelectorAll("input[type='text']");
     elements.forEach((element) => {
       console.log('running')
-      element.attributes.removeNamedItem('disabled');
+      // element.attributes.removeNamedItem('disabled');
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
     });
