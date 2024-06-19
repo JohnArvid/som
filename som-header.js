@@ -188,7 +188,7 @@ const indikator = {
           let checkedClass = document.querySelector(
             checkBoxIds[i].classList.contains('activeCheckbox')
           );
-          if (checkedAttribute || checkedClass) {
+          if (checkedAttribute || !checkedClass) {
             return true;
           }
         }
@@ -226,7 +226,7 @@ const indikator = {
           e.preventDefault();
           console.log(e.target, ' was clicked');
           console.log(e.target.classList)
-          // toggleControlledItems();
+          toggleControlledItems();
         })
       );
 
