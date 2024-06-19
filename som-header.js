@@ -177,6 +177,11 @@ const indikator = {
         document.querySelectorAll(responsiveClass + controlledClass) ||
         document.querySelectorAll(controlledClass);
 
+      checkBoxLabels.forEach((item) => {
+        checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
+        inputIds.push(item.getAttribute('for'));
+      });
+
       const checkBoxActive = () => {
         for (let i = 0; i < inputIds.length; i++) {
           if (document.getElementById(inputIds[i]).checked) {
@@ -206,17 +211,15 @@ const indikator = {
         }
       };
 
-      checkBoxLabels.forEach((item) => {
-        checkBoxIds.push("[name='setvalue" + item.getAttribute('for') + "']");
-        inputIds.push(item.getAttribute('for'));
-      });
+      let items = document.getElementById('items');
+      items.addEventListener('change', toggleControlledItems);
 
-      clickableItems.forEach((item) =>
-        item.addEventListener('click', toggleControlledItems)
-      );
-      allAnchors.forEach((a) =>
-        a.addEventListener('click', toggleControlledItems)
-      );
+      // clickableItems.forEach((item) =>
+      //   item.addEventListener('click', toggleControlledItems)
+      // );
+      // allAnchors.forEach((a) =>
+      //   a.addEventListener('click', toggleControlledItems)
+      // );
 
       toggleControlledItems();
     }
