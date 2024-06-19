@@ -185,9 +185,7 @@ const indikator = {
       const checkBoxActive = () => {
         for (let i = 0; i < inputIds.length; i++) {
           let checkedAttribute = document.getElementById(inputIds[i]).checked;
-          let checkedClass = document.querySelector(
-            checkBoxIds[i]).classList.contains('activeCheckbox');
-          if (checkedAttribute || !checkedClass) {
+          if (checkedAttribute) {
             return true;
           }
         }
@@ -206,7 +204,6 @@ const indikator = {
       };
 
       const toggleControlledItems = () => {
-        console.log(checkBoxActive());
         if (checkBoxActive()) {
           hideControlledItems();
         } else {
@@ -222,10 +219,15 @@ const indikator = {
       // );
       allAnchors.forEach((a) =>
         a.addEventListener('click', (e) => {
+          // do i need this?
           e.preventDefault();
-          console.log(e.target, ' was clicked');
-          console.log(e.target.classList)
-          toggleControlledItems();
+          
+          let checkedClass = e.target.classList.contains('activeCheckbox');
+          if (checkedClass) {
+            showControlledItems();
+          } else {
+            hideControlledItems();
+          }
         })
       );
 
