@@ -186,8 +186,7 @@ const indikator = {
         for (let i = 0; i < inputIds.length; i++) {
           let checkedAttribute = document.getElementById(inputIds[i]).checked;
           let checkedClass = document.querySelector(
-            checkBoxIds[i].classList.contains('activeCheckbox')
-          );
+            checkBoxIds[i]).classList.contains('activeCheckbox');
           if (checkedAttribute || !checkedClass) {
             return true;
           }
