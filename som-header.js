@@ -178,7 +178,7 @@ const indikator = {
         document.querySelectorAll(controlledClass);
 
       const checkBoxActive = () => {
-        for (let i = 0; i > inputIds.length; i++) {
+        for (let i = 0; i < inputIds.length; i++) {
           if (document.getElementById(inputIds[i]).checked) {
             return true;
           }
