@@ -266,10 +266,11 @@ const indikator = {
   alwaysShowOpenFields: function () {
     const elements = document.querySelectorAll("input[type='text']");
     elements.forEach((element) => {
-      console.log(element);
-      // element.attributes.removeNamedItem('disabled');
+      console.log(element.disabled);
+      element.disabled = false;
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
+      console.log(element.disabled);
     });
   },
 
