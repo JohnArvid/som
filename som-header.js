@@ -177,10 +177,32 @@ const indikator = {
         document.querySelectorAll(responsiveClass + controlledClass) ||
         document.querySelectorAll(controlledClass);
 
-      const toggleControlledItems = () => {
+      const checkBoxActive = () => {
+        for (let i = 0; i > inputIds.length; i++) {
+          if (document.getElementById(inputIds[i]).checked) {
+            return true;
+          }
+        }
+        return false;
+      };
+
+      const hideControlledItems = () => {
         elements.forEach((element) => {
-          element.classList.toggle('hidden');
+          element.classList.add('hidden');
         });
+      };
+      const showControlledItems = () => {
+        elements.forEach((element) => {
+          element.classList.remove('hidden');
+        });
+      };
+
+      const toggleControlledItems = () => {
+        if (checkBoxActive()) {
+          hideControlledItems();
+        } else {
+          showControlledItems();
+        }
       };
 
       checkBoxLabels.forEach((item) => {
@@ -188,35 +210,14 @@ const indikator = {
         inputIds.push(item.getAttribute('for'));
       });
 
-      // add the eventlisteners on the checkboxes and use e.target in handler
-      // const changeHandler = () => {
-      //   inputIds.forEach(() => {
-      //     toggleControlledItems();
-      //   });
-      // };
-
-      function checkBoxActive() {
-        // needs to check for checked prop instead?
-        for (let i = 0; i > inputIds.length; i++) {
-          if (document.getElementById(inputIds[i]).checked) {
-            return true;
-          }
-        }
-        return false;
-      }
-
-      function initialCheck() {
-        if (checkBoxActive()) {
-          toggleControlledItems();
-        }
-      }
-
       clickableItems.forEach((item) =>
         item.addEventListener('click', toggleControlledItems)
       );
-      allAnchors.forEach((a) => a.addEventListener('click', toggleControlledItems));
+      allAnchors.forEach((a) =>
+        a.addEventListener('click', toggleControlledItems)
+      );
 
-      initialCheck();
+      toggleControlledItems();
     }
   },
 
@@ -255,7 +256,7 @@ const indikator = {
   alwaysShowOpenFields: function () {
     const elements = document.querySelectorAll("input[type='text']");
     elements.forEach((element) => {
-      console.log('running')
+      console.log('running');
       // element.attributes.removeNamedItem('disabled');
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
