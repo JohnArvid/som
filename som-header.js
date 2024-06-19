@@ -217,9 +217,9 @@ const indikator = {
       // clickableItems.forEach((item) =>
       //   item.addEventListener('click', toggleControlledItems)
       // );
-      // allAnchors.forEach((a) =>
-      //   a.addEventListener('click', toggleControlledItems)
-      // );
+      allAnchors.forEach((a) =>
+        a.addEventListener('click', toggleControlledItems)
+      );
 
       toggleControlledItems();
     }
