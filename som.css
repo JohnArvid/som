@@ -6,6 +6,9 @@ html[lang="ar"] #borderPaddingContainer #supplierLogo, html[lang="ar"] #borderPa
 input[type='text'] {
     border-width: 1px 1px 1px 1px;
 }
+input.passiveConnection {
+    display: block !important;
+}
 
 /* Ta bort padding på mobilmatriser med enbart en rad */
 .responsiveMatrixCell.oneLineGrid .header {
