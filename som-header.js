@@ -269,7 +269,6 @@ const indikator = {
       element.disabled = false;
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
-      console.log(element.id, "\ndisabled: ", element.disabled, '\nClasslist: ', element.classList );
     });
   },
 
