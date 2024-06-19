@@ -184,7 +184,7 @@ const indikator = {
 
       const checkBoxActive = () => {
         for (let i = 0; i < inputIds.length; i++) {
-          let checkedAttribute = document.getElementById(inputIds[i]).checked
+          let checkedAttribute = document.getElementById(inputIds[i]).checked;
           let checkedClass = document.querySelector(
             checkBoxIds[i].classList.contains('activeCheckbox')
           );
@@ -222,7 +222,11 @@ const indikator = {
       //   item.addEventListener('click', toggleControlledItems)
       // );
       allAnchors.forEach((a) =>
-        a.addEventListener('click', toggleControlledItems)
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(e, ' was clicked');
+          toggleControlledItems();
+        })
       );
 
       toggleControlledItems();
