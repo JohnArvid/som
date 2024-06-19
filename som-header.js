@@ -214,14 +214,10 @@ const indikator = {
       let items = document.getElementById('items');
       items.addEventListener('change', toggleControlledItems);
 
-      // clickableItems.forEach((item) =>
-      //   item.addEventListener('click', toggleControlledItems)
-      // );
       allAnchors.forEach((a) =>
         a.addEventListener('click', (e) => {
-          // do i need this?
           e.preventDefault();
-          
+
           let checkedClass = e.target.classList.contains('activeCheckbox');
           if (checkedClass) {
             showControlledItems();
@@ -270,7 +266,7 @@ const indikator = {
   alwaysShowOpenFields: function () {
     const elements = document.querySelectorAll("input[type='text']");
     elements.forEach((element) => {
-      console.log('running');
+      console.log(element);
       // element.attributes.removeNamedItem('disabled');
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
