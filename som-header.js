@@ -224,8 +224,9 @@ const indikator = {
       allAnchors.forEach((a) =>
         a.addEventListener('click', (e) => {
           e.preventDefault();
-          console.log(e, ' was clicked');
-          toggleControlledItems();
+          console.log(e.target, ' was clicked');
+          console.log(e.target.classList)
+          // toggleControlledItems();
         })
       );
 
