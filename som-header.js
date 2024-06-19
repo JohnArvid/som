@@ -198,6 +198,7 @@ const indikator = {
       };
 
       const toggleControlledItems = () => {
+        console.log(checkBoxActive());
         if (checkBoxActive()) {
           hideControlledItems();
         } else {
