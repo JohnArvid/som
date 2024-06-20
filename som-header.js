@@ -265,6 +265,7 @@ const indikator = {
 
   removeZebra: function () {
     const elements = document.querySelectorAll('.removeZebra .StripedRow');
+    console.log(elements)
     elements.forEach((element) => {
       element.classList.remove('StripedRow');
     });
