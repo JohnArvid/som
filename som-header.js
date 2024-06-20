@@ -238,7 +238,8 @@ const indikator = {
     let desktopInput = document.querySelector(inputType + desktopClass);
     let mobileInput = document.querySelector(inputType + mobileClass);
 
-    function updateCorrespondingInput() {
+    function updateCorrespondingInput(e) {
+      console.log('type: ', e.type,'\ntarget: ', e.target);
       isMobile.matches
         ? desktopInput.value = mobileInput.value
         : mobileInput.value = desktopInput.value;
