@@ -239,7 +239,14 @@ const indikator = {
     let mobileInput = document.querySelector(inputType + mobileClass);
 
     function updateCorrespondingInput(e) {
-      console.log('type: ', e.type, '\ntarget: ', e.target);
+      console.log(`type: ${e.type},
+        target: ${e.target},
+        value: ${e.target.value}`);
+      const elements = document.querySelectorAll("input[type='text']");
+      elements.forEach((element) => {
+        element.disabled = false;
+      });
+      
       isMobile.matches
         ? (desktopInput.value = mobileInput.value)
         : (mobileInput.value = desktopInput.value);
@@ -254,7 +261,7 @@ const indikator = {
       );
     }
     let changeTargets = document.querySelectorAll('.responsiveInput');
-    if (changeTargets) {
+    if (changeTargets.length > 0) {
       changeTargets.forEach((target) =>
         target.addEventListener('change', updateCorrespondingInput)
       );
