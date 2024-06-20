@@ -271,14 +271,12 @@ const indikator = {
   },
 
   alwaysShowOpenFields: function () {
-    setTimeout(() => {
-      const elements = document.querySelectorAll("input[type='text']");
-      elements.forEach((element) => {
-        element.disabled = false;
-        element.classList.add('activeConnection');
-        element.classList.remove('passiveConnection');
-      });
-    }, 0);
+    const elements = document.querySelectorAll("input[type='text']");
+    elements.forEach((element) => {
+      element.disabled = false;
+      element.classList.add('activeConnection');
+      element.classList.remove('passiveConnection');
+    });
   },
 
   setNumericKeyboard: function () {

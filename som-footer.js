@@ -16,3 +16,4 @@ if (document.readyState === 'loading') {
 } else {
   som();
 }
+setTimeout(indikator.alwaysShowOpenFields, 0);
