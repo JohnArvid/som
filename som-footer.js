@@ -9,7 +9,7 @@ function som() {
     indikator.checkBoxFilters();
     indikator.accordion();
     indikator.samePageFilters();
-  }, 0);
+  }, 200);
 }
 
 if (document.readyState === 'loading') {
