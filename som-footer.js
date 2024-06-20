@@ -5,7 +5,6 @@ function som() {
   indikator.excludeFromAccordion();
   indikator.updateTextInputs();
   indikator.removeZebra();
-  indikator.alwaysShowOpenFields();
   indikator.checkBoxFilters();
   indikator.accordion();
   indikator.samePageFilters();
@@ -16,4 +15,3 @@ if (document.readyState === 'loading') {
 } else {
   som();
 }
-setTimeout(indikator.alwaysShowOpenFields, 0);
