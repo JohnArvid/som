@@ -240,8 +240,8 @@ const indikator = {
 
     function updateCorrespondingInput() {
       isMobile.matches
-        ? desktopInput.val(mobileInput.val())
-        : mobileInput.val(desktopInput.val());
+        ? desktopInput.value = mobileInput.value
+        : mobileInput.value = desktopInput.value;
     }
 
     let inputTarget = document.querySelector(
@@ -282,7 +282,6 @@ const indikator = {
     }
   },
 
-  // Previous class name was 'cellOnly' updated to 'ejDragspel'
   excludeFromAccordion: function () {
     const elements = document.querySelectorAll(
       '.ejDragspel .simpleQuestionGridItem'
