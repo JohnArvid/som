@@ -239,21 +239,25 @@ const indikator = {
     let mobileInput = document.querySelector(inputType + mobileClass);
 
     function updateCorrespondingInput(e) {
-      console.log('type: ', e.type,'\ntarget: ', e.target);
+      console.log('type: ', e.type, '\ntarget: ', e.target);
       isMobile.matches
-        ? desktopInput.value = mobileInput.value
-        : mobileInput.value = desktopInput.value;
+        ? (desktopInput.value = mobileInput.value)
+        : (mobileInput.value = desktopInput.value);
     }
 
-    let inputTarget = document.querySelector(
+    let inputTargets = document.querySelectorAll(
       "input[type='text'].responsiveInput"
     );
-    if (inputTarget) {
-      inputTarget.addEventListener('input', updateCorrespondingInput);
+    if (inputTargets.length > 0) {
+      inputTargets.forEach((input) =>
+        input.addEventListener('input', updateCorrespondingInput)
+      );
     }
-    let changeTarget = document.querySelector('.responsiveInput');
-    if (changeTarget) {
-      changeTarget.addEventListener('change', updateCorrespondingInput);
+    let changeTargets = document.querySelectorAll('.responsiveInput');
+    if (changeTargets) {
+      changeTargets.forEach((target) =>
+        target.addEventListener('change', updateCorrespondingInput)
+      );
     }
   },
 
