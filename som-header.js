@@ -238,15 +238,10 @@ const indikator = {
     let desktopInput = document.querySelector(inputType + desktopClass);
     let mobileInput = document.querySelector(inputType + mobileClass);
 
-    function updateCorrespondingInput(e) {
-      console.log(`type: ${e.type},
-        target: ${e.target},
-        value: ${e.target.value}`);
-      const elements = document.querySelectorAll("input[type='text']");
-      elements.forEach((element) => {
-        element.disabled = false;
-      });
-      
+    function updateCorrespondingInput() {
+      desktopInput.disabled = false;
+      mobileInput.disabled = false;
+
       isMobile.matches
         ? (desktopInput.value = mobileInput.value)
         : (mobileInput.value = desktopInput.value);
@@ -276,12 +271,14 @@ const indikator = {
   },
 
   alwaysShowOpenFields: function () {
-    const elements = document.querySelectorAll("input[type='text']");
-    elements.forEach((element) => {
-      element.disabled = false;
-      element.classList.add('activeConnection');
-      element.classList.remove('passiveConnection');
-    });
+    setTimeout(() => {
+      const elements = document.querySelectorAll("input[type='text']");
+      elements.forEach((element) => {
+        element.disabled = false;
+        element.classList.add('activeConnection');
+        element.classList.remove('passiveConnection');
+      });
+    }, 0);
   },
 
   setNumericKeyboard: function () {
