@@ -272,12 +272,13 @@ const indikator = {
 
   alwaysShowOpenFields: function () {
     const elements = document.querySelectorAll("input[type='text']");
-    console.log(elements)
+    
     elements.forEach((element) => {
       element.disabled = false;
       element.classList.add('activeConnection');
       element.classList.remove('passiveConnection');
     });
+    console.log(document.querySelectorAll("input[type='text']"));
   },
 
   setNumericKeyboard: function () {
