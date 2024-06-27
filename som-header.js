@@ -220,9 +220,9 @@ const indikator = {
 
           let checkedClass = e.target.classList.contains('activeCheckbox');
           if (checkedClass) {
-            showControlledItems();
-          } else {
             hideControlledItems();
+          } else {
+            showControlledItems();
           }
         })
       );
