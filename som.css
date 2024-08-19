@@ -1,344 +1,362 @@
 /* Fixa margin på loggor i rtl */
-html[lang="ar"] #borderPaddingContainer #supplierLogo, html[lang="ar"] #borderPaddingContainer #rightLogo {
-    margin: 6.8% 1.8% 0px;
+html[lang='ar'] #borderPaddingContainer #supplierLogo,
+html[lang='ar'] #borderPaddingContainer #rightLogo {
+  margin: 6.8% 1.8% 0px;
 }
 /* Ge textinputs ram */
 input[type='text'] {
-    border-width: 1px 1px 1px 1px;
+  border-width: 1px 1px 1px 1px;
 }
 input.passiveConnection {
-    display: block !important;
+  display: block !important;
 }
 
 /* Ta bort padding på mobilmatriser med enbart en rad */
 .responsiveMatrixCell.oneLineGrid .header {
-    padding: 0;
+  padding: 0;
 }
 
 /* Visa dölj dator/mobilmatriser */
-.responsiveMatrixWeb, .webOnly{display:block}
-.responsiveMatrixCell, .cellOnly{display:none}
+.responsiveMatrixWeb,
+.webOnly {
+  display: block;
+}
+.responsiveMatrixCell,
+.cellOnly {
+  display: none;
+}
 
 /* Justerar padding på fram- och bakpilar */
-#nextSubmit, #statementContinue input,
-#backSubmit, #statementUndo input {
-    padding: 4% 6.75%;
+#nextSubmit,
+#statementContinue input,
+#backSubmit,
+#statementUndo input {
+  padding: 4% 6.75%;
 }
 
 /* Ta bort padding top med klassen noPaddingTop */
 body.noItemStriping .tableFormat1.noPaddingTop {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 /* Större padding på sista alternativet för gridfrågor */
 .MerPlats td:last-child {
-    padding-left: 50px;
-    padding-right: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 /* Göm svarsalternativ med klassen hideAlternatives, vet inte när den används */
 .hideAlternatives h3.textQAnsweralternative {
-   display: none;
+  display: none;
 }
 
 /* Dölj sista steget i progressbar */
 #ProgressBar .ProgressBarStep.lastStep {
-    display:none;
+  display: none;
 }
 
 /* Färg när man hovrar progressbar */
-.progressBar .navigation:hover, .cbox_progbar_inside .navigation:hover {
-    color: #333!important;
+.progressBar .navigation:hover,
+.cbox_progbar_inside .navigation:hover {
+  color: #333 !important;
 }
 
 /* Klass för mailvalideringsfunktion Kan även användas om 'nästa-knappen' är inaktiv av annan anledning */
 .disabledSubmit {
-    color: grey!important;
+  color: grey !important;
 }
 #nextSubmit.disabledSubmit:hover {
-    color: grey!important;
-    cursor: default;
+  color: grey !important;
+  cursor: default;
 }
 
 /* Kan vara så att denna ska tas bort */
 #items {
-    overflow: auto;
+  overflow: auto;
 }
 
 /*Klassen tillit ges till tillitsfrågorna (och liknande?)*/
 .tillit .cellSubquestionLeft {
-    width: 0%;
+  width: 0%;
 }
 .tillit td:last-child {
-    padding: 9px 7px;
+  padding: 9px 7px;
 }
 
 /* Specialare för tillit.f3 */
 .tableFormat1 .itemGrid .tillit.f3 .cellMatrixAnsweralternativesHeaderLeft {
-    padding-left: 4%;
+  padding-left: 4%;
 }
-
 
 /* Specialklass för -5 till +5 frågor */
 .femtillfem th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 2.7em;
+  vertical-align: bottom;
+  min-width: 2.7em;
 }
 .oneLineGrid.femtillfem th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 4.2em;
+  vertical-align: bottom;
+  min-width: 4.2em;
 }
 
 /* Minska level 1 items */
-.level1Big .textQHead, .level1 .textQHead, .itemLevel1 .textQHead {
-    font-size: 2.6em;
+.level1Big .textQHead,
+.level1 .textQHead,
+.itemLevel1 .textQHead {
+  font-size: 2.6em;
 }
 
 /* Ändra textstorlek på tacksidan */
 .thanks.tableFormat1.itemStatement .cellQuestionText2 {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
-
 
 /* Specialfix för f39 */
 .fixWidth.f39 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 1.5em;
+  vertical-align: bottom;
+  min-width: 1.5em;
 }
 
 /* F35 i R5 */
-.flex-cont, .flexContainer .cellQuestionText2 ol {
-    display: -webkit-flex;
-    display: flex; 
-    justify-content: space-between;
-    padding: 0 3%;
+.flex-cont,
+.flexContainer .cellQuestionText2 ol {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3%;
 }
-.flexContainer .cellQuestionText2 ol{
-    flex-flow: column wrap;
-    height: 30em;
+.flexContainer .cellQuestionText2 ol {
+  flex-flow: column wrap;
+  height: 30em;
 }
 .flex-cont p {
-    font-weight: bold;
-    width: 33%;
+  font-weight: bold;
+  width: 33%;
 }
-.flex-cont .center{
-    text-align: center;
+.flex-cont .center {
+  text-align: center;
 }
-.flex-cont .right{
-    text-align: right;
+.flex-cont .right {
+  text-align: right;
 }
 
 /* Gör h2.textQHead inte bold med klassen notBold */
 .notBold h2.textQHead {
-    font-weight: normal;
-    border-bottom-style: none;
+  font-weight: normal;
+  border-bottom-style: none;
 }
 
 /* Mindre itemLevel1 med klassen smaller */
 .smaller.itemLevel1 .textQHead {
-    font-size: 2em;
+  font-size: 2em;
 }
 #borderPaddingContainer .tableFormat1.itemStatement.smaller.itemLevel1 {
-    padding-top: 2%;
-    padding-bottom: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
-#borderPaddingContainer .tableFormat1.itemStatement.smaller.itemLevel1 .cellQuestionText2{
-    margin-top:0;
+#borderPaddingContainer
+  .tableFormat1.itemStatement.smaller.itemLevel1
+  .cellQuestionText2 {
+  margin-top: 0;
 }
-
 
 /* Justera gridsvarsalternativ till botten med klassen fixDown */
-.fixDown th.cellMatrixAnsweralternatives, 
-.fixDown th.scaleHeaderContainer, 
+.fixDown th.cellMatrixAnsweralternatives,
+.fixDown th.scaleHeaderContainer,
 .fixDown th.altHeader {
-    vertical-align: bottom;
+  vertical-align: bottom;
 }
-
 
 /*  Olika klasser för att låsa kolumnbredd på gridfrågor */
 
 .fixWidth th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 4.5em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 4.5em;
+  box-sizing: border-box;
 }
 .fixWidth3 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 3em;
-    max-width: 3em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 3em;
+  max-width: 3em;
+  box-sizing: border-box;
 }
 .fixWidth4 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 4em;
-    max-width: 4em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 4em;
+  max-width: 4em;
+  box-sizing: border-box;
 }
 .fixWidth5 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 5em;
-    max-width: 5em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 5em;
+  max-width: 5em;
+  box-sizing: border-box;
 }
 .fixWidth55 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 5.5em;
-    max-width: 5.5em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 5.5em;
+  max-width: 5.5em;
+  box-sizing: border-box;
 }
 .fixWidth6 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 6em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 6em;
+  box-sizing: border-box;
 }
 .fixWidth7 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 7em;
-    max-width: 7em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 7em;
+  max-width: 7em;
+  box-sizing: border-box;
 }
 .fixWidth7-2 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 7.2em;
-    max-width: 7.2em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 7.2em;
+  max-width: 7.2em;
+  box-sizing: border-box;
 }
 .fixWidth75 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 7.5em;
-    max-width: 7.5em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 7.5em;
+  max-width: 7.5em;
+  box-sizing: border-box;
 }
 .fixWidth7-8 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 7.8em;
-    max-width: 7.8em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 7.8em;
+  max-width: 7.8em;
+  box-sizing: border-box;
 }
 .fixWidth8 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 8em;
-    max-width: 8em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 8em;
+  max-width: 8em;
+  box-sizing: border-box;
 }
 .fixWidth9 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 9em;
-    max-width: 9em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 9em;
+  max-width: 9em;
+  box-sizing: border-box;
 }
 .fixWidth10 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 10em;
-    max-width: 10em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 10em;
+  max-width: 10em;
+  box-sizing: border-box;
 }
 .fixWidth11 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 11em;
-    max-width: 11em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 11em;
+  max-width: 11em;
+  box-sizing: border-box;
 }
 .fixWidth11-4 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 11.4em;
-    max-width: 11.4em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 11.4em;
+  max-width: 11.4em;
+  box-sizing: border-box;
 }
 .fixWidth12 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 12em;
-    max-width: 12em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 12em;
+  max-width: 12em;
+  box-sizing: border-box;
 }
 .fixWidth13 th.cellMatrixAnsweralternatives {
-    vertical-align: bottom;
-    min-width: 13em;
-    max-width: 13em;
-    box-sizing: border-box;
+  vertical-align: bottom;
+  min-width: 13em;
+  max-width: 13em;
+  box-sizing: border-box;
 }
 
 /* Oklart om denna verkligen används */
-.maxWidth6 th.cellMatrixAnsweralternatives{
-    max-width: 6em;
+.maxWidth6 th.cellMatrixAnsweralternatives {
+  max-width: 6em;
 }
-
 
 /*Ge klassen twoCol till gridfrågor med enbart två alternativ som också är markerade som slim grid*/
 .slimTable.twoCol table.tableFormatMatrix {
-    max-width: 50%;
-    min-width: 24em;
-    width: 100%;
+  max-width: 50%;
+  min-width: 24em;
+  width: 100%;
 }
 
 /* Klassen spaceAlternatives ger lite padding till gridalternativ */
 .spaceAlternatives th.cellMatrixAnsweralternatives {
-    padding-right: 1em;
-    padding-left: 1em;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 /* Begränsa scale headers till 21 em med klassen limitScaleHeaders */
-.limitScaleHeaders th.cellMatrixAnsweralternativesHeaderLeft, .limitScaleHeaders th.cellMatrixAnsweralternativesHeaderRight {
-    max-width: 21em;
+.limitScaleHeaders th.cellMatrixAnsweralternativesHeaderLeft,
+.limitScaleHeaders th.cellMatrixAnsweralternativesHeaderRight {
+  max-width: 21em;
 }
 
 /* Centrera scale headers med klassen centerScaleHeaders */
 .centerScaleHeaders th.cellMatrixAnsweralternativesHeaderLeft {
-    text-align: center;
-    padding-right: 29%;
+  text-align: center;
+  padding-right: 29%;
 }
 .centerScaleHeaders th.cellMatrixAnsweralternativesHeaderRight {
-    text-align: center;
-    padding-left: 29%;
+  text-align: center;
+  padding-left: 29%;
 }
 /* Justera padding left/right på 0-10-frågor med klassen nollTillTio */
 .nollTillTio .tableFormatMatrix thead td:not(.cellSubquestionLeft) {
-    padding: 0px 3%;
+  padding: 0px 3%;
 }
 /* Justera padding left/right på 0-10-frågor med subfrågor med klassen nollTillTioSub */
 .nollTillTioSub .tableFormatMatrix thead td:not(.cellSubquestionLeft) {
-    padding: 0px 2%;
+  padding: 0px 2%;
 }
-
 
 /* Justera padding left/right på 1-7-frågor med klassen ettTillSju */
 .ettTillSju .tableFormatMatrix thead td {
-    padding: 0px 19px;
+  padding: 0px 19px;
 }
 
 /* Extra padding sista alternativet - Ingen uppfattning el dyl*/
 .extraPaddingLastAlt .cellMatrixAnsweralternatives:last-of-type {
-    padding-left: 3em;
+  padding-left: 3em;
 }
-
 
 /* Ta bort padding bottom med klassen noPaddingBottom */
 body.noItemStriping .tableFormat1.noPaddingBottom {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 /*Italics på filtrerande checkboxar med klassen italicAlternative*/
-.italicAlternative span.textQAnsweralternative{
-    font-style:italic;
+.italicAlternative span.textQAnsweralternative {
+  font-style: italic;
 }
 
 /* Tilldela språkväljare, om det finns, klassen languageSelection */
-.languageSelection .horizontalButtons.ui-buttonset { display: flex; flex-wrap: wrap; }
-.languageSelection label { width: 25%; }
-.languageSelection label img { display: block; margin: auto; }
+.languageSelection .horizontalButtons.ui-buttonset {
+  display: flex;
+  flex-wrap: wrap;
+}
+.languageSelection label {
+  width: 25%;
+}
+.languageSelection label img {
+  display: block;
+  margin: auto;
+}
 
-#nextSubmit, #statementContinue input, #backSubmit, #statementUndo input {
-    padding: 1% 6.75%;
-    margin: 2% 0;
+#nextSubmit,
+#statementContinue input,
+#backSubmit,
+#statementUndo input {
+  padding: 1% 6.75%;
+  margin: 2% 0;
 }
 .paddAlternatives td.cellAnsweralternatives {
-    padding-right: 120px;
+  padding-right: 120px;
 }
 .noSpaceComment .cellQuestionText2 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-
-
 
 /****************************
 
@@ -346,99 +364,120 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
 
 *****************************/
 
-@media only screen and (max-device-width: 568px), only screen and (max-width: 568px){
-    #items {overflow: auto;}
-    .responsiveMatrixWeb , .webOnly{display:none}
-    .responsiveMatrixCell, .cellOnly{display:block}
+@media only screen and (max-device-width: 568px),
+  only screen and (max-width: 568px) {
+  #items {
+    overflow: auto;
+  }
+  .responsiveMatrixWeb,
+  .webOnly {
+    display: none;
+  }
+  .responsiveMatrixCell,
+  .cellOnly {
+    display: block;
+  }
 
-    .simpleQuestionGridItem.activeItem span.header {
-        border-bottom: 2px solid rgb(51 51 51 / 57%)
-    }
-    
-    .fixWidth7 th.cellMatrixAnsweralternatives {
-        vertical-align: bottom;
-        min-width: 5em;
-        max-width: 5em;
-        box-sizing: border-box;
-    }
-    .fixWidth6 th.cellMatrixAnsweralternatives {
-        vertical-align: bottom;
-        min-width: 4.2em;
-        max-width: 4.2em;
-        box-sizing: border-box;
-    }
-    .fixWidth10 th.cellMatrixAnsweralternatives {
-        vertical-align: bottom;
-        min-width: 6em;
-        max-width: 6em;
-        box-sizing: border-box;
-    }
+  .simpleQuestionGridItem.activeItem span.header {
+    border-bottom: 2px solid rgb(51 51 51 / 57%);
+  }
 
-    .fixWidth6 .bigGrid th.cellMatrixAnsweralternatives {
-        vertical-align: bottom;
-        min-width: 3em;
-        max-width: 3em;
-        box-sizing: border-box;
-    }
+  .fixWidth7 th.cellMatrixAnsweralternatives {
+    vertical-align: bottom;
+    min-width: 5em;
+    max-width: 5em;
+    box-sizing: border-box;
+  }
+  .fixWidth6 th.cellMatrixAnsweralternatives {
+    vertical-align: bottom;
+    min-width: 4.2em;
+    max-width: 4.2em;
+    box-sizing: border-box;
+  }
+  .fixWidth10 th.cellMatrixAnsweralternatives {
+    vertical-align: bottom;
+    min-width: 6em;
+    max-width: 6em;
+    box-sizing: border-box;
+  }
 
-    .MindreAv .cellSubquestionLeft {
-        padding-top: 0em;
-    }
+  .fixWidth6 .bigGrid th.cellMatrixAnsweralternatives {
+    vertical-align: bottom;
+    min-width: 3em;
+    max-width: 3em;
+    box-sizing: border-box;
+  }
 
-    .f35.fixWidth th.cellMatrixAnsweralternatives {
-        font-size: .82em!important;
-    }
+  .MindreAv .cellSubquestionLeft {
+    padding-top: 0em;
+  }
 
-    .bothSides tr {
-        display: inline-block;
-    }
+  .f35.fixWidth th.cellMatrixAnsweralternatives {
+    font-size: 0.82em !important;
+  }
 
-    .flexContainer .cellQuestionText2 ol{
-        flex-flow: none;
-        height: auto;
-    }
+  .bothSides tr {
+    display: inline-block;
+  }
 
-    #ProgressBar .progressBarHandle, #ProgressBar .ProgressBarStep .navigation[class] {
-        font-size: 1em;
-    }
+  .flexContainer .cellQuestionText2 ol {
+    flex-flow: none;
+    height: auto;
+  }
 
-    .currentStep.ProgressBarStep.lastStep.cbox_progbar_inside_highlight{
-        display:none;
-    }
-    /*Se till att mobilgrids fyller hela skärmen i bredd*/
-    table.QuestionTable {
-        width:100%;
-    }
-    /* Justera padding left/right på 0-10-frågor med klassen nollTillTio  */
-    .nollTillTio .tableFormatMatrix thead td:not(.cellSubquestionLeft) {
-        padding: 0px 5px;
-    }
-    .nollTillTio .scaleHeaderContainer {
-        padding-bottom: 2rem;
-    }
+  #ProgressBar .progressBarHandle,
+  #ProgressBar .ProgressBarStep .navigation[class] {
+    font-size: 1em;
+  }
 
-    .nollTillTio .spanningGridText .cellSubquestionLeft{
-        padding-top: 0;
-    }
-    /* Normalisera padding-top */
-    body.hasTopNavigation .tableFormat1:first-of-type {
-        padding-top: 3%;
-    }
-    /* mindre padding-bottom på lablar */
-    .tightLabels .tableFormatMatrix .scaleHeaderContainer td{
-        padding-bottom: 0em;
-    }
-    #nextSubmit, #statementContinue input, #backSubmit, #statementUndo input {
-        padding: 4% 6.75%;
-        margin: 0 0;
-    }
-    .smallerHeader h2.textQHead{
-        font-size: 1.15em;
-    }
-    .altHeader h2.textQHead, .altHeader td.cellSubquestionLeft {
-        text-align: left;
-    }
-    .paddAlternatives td.cellAnsweralternatives {
-        padding-right: 0.5em;
-    }
+  .currentStep.ProgressBarStep.lastStep.cbox_progbar_inside_highlight {
+    display: none;
+  }
+
+  #ProgressBar .ProgressBarStep .submitHover[class],
+  #ProgressBar .currentStep .navigation[class],
+  #ProgressBar .progressBarHandle,
+  #ProgressBar .ProgressBarStep .navigation[class] {
+    background-image: none;
+  }
+  /*Se till att mobilgrids fyller hela skärmen i bredd*/
+  table.QuestionTable {
+    width: 100%;
+  }
+  /* Justera padding left/right på 0-10-frågor med klassen nollTillTio  */
+  .nollTillTio .tableFormatMatrix thead td:not(.cellSubquestionLeft) {
+    padding: 0px 5px;
+  }
+  .nollTillTio .scaleHeaderContainer {
+    padding-bottom: 2rem;
+  }
+
+  .nollTillTio .spanningGridText .cellSubquestionLeft {
+    padding-top: 0;
+  }
+  /* Normalisera padding-top */
+  body.hasTopNavigation .tableFormat1:first-of-type {
+    padding-top: 3%;
+  }
+  /* mindre padding-bottom på lablar */
+  .tightLabels .tableFormatMatrix .scaleHeaderContainer td {
+    padding-bottom: 0em;
+  }
+  #nextSubmit,
+  #statementContinue input,
+  #backSubmit,
+  #statementUndo input {
+    padding: 4% 6.75%;
+    margin: 0 0;
+  }
+  .smallerHeader h2.textQHead {
+    font-size: 1.15em;
+  }
+  .altHeader h2.textQHead,
+  .altHeader td.cellSubquestionLeft {
+    text-align: left;
+  }
+  .paddAlternatives td.cellAnsweralternatives {
+    padding-right: 0.5em;
+  }
 }
