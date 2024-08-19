@@ -9,6 +9,7 @@ function som() {
     indikator.checkBoxFilters();
     indikator.accordion();
     indikator.samePageFilters();
+    indikator.alwaysShowOpenFields();
   }, 200);
 }
 
