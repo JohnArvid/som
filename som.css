@@ -405,6 +405,10 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
     .currentStep.ProgressBarStep.lastStep.cbox_progbar_inside_highlight{
         display:none;
     }
+
+    #ProgressBar .ProgressBarStep .submitHover[class], #ProgressBar .currentStep .navigation[class]{
+        background-image: none;
+    }
     /*Se till att mobilgrids fyller hela skärmen i bredd*/
     table.QuestionTable {
         width:100%;
