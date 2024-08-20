@@ -358,6 +358,10 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
   margin-bottom: 0;
 }
 
+.horizontalAlternatives .QuestionTable tbody {
+  display: flex;
+}
+
 /****************************
 
    MOBIL CSS
