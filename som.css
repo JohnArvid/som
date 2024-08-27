@@ -362,6 +362,10 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
   display: flex;
 }
 
+.flyttaNerAlternativ .tableFormatMatrix  {
+  margin-top: 1em;
+}
+
 /****************************
 
    MOBIL CSS
