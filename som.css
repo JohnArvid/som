@@ -484,4 +484,9 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
   .paddAlternatives td.cellAnsweralternatives {
     padding-right: 0.5em;
   }
+
+  /* Mindre avstånd till fritextrutan */
+  .flyttaUppFritextRuta .cellAnsweralternatives.openAnswerRight {
+    padding-top: 0 !important;
+  }
 }
