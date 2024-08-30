@@ -232,6 +232,9 @@ body.noItemStriping .tableFormat1.noPaddingTop {
   max-width: 8em;
   box-sizing: border-box;
 }
+.tableFormat1.fixWidth8 {
+  padding: 6.75% 8%;
+}
 .fixWidth9 th.cellMatrixAnsweralternatives {
   vertical-align: bottom;
   min-width: 9em;
