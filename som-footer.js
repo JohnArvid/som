@@ -10,6 +10,7 @@ function som() {
     indikator.accordion();
     indikator.samePageFilters();
     indikator.alwaysShowOpenFields();
+    indikator.repeatScaleHeaders();
   }, 200);
 }
 
