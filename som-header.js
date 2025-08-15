@@ -407,4 +407,19 @@ const indikator = {
       }
     );
   },
+
+  repeatScaleHeaders: function () {
+    if (document.querySelector('.repeatScaleHeaders')) {
+      //add scaleHeaderContainer after gridquestion text
+      $('.responsiveMatrixCell.repeatScaleHeaders .spanningGridText').after(
+        $(
+          '.responsiveMatrixCell.repeatScaleHeaders .scaleHeaderContainer'
+        ).parent()
+      );
+      // Hide first scaleHeaderContainer
+      $(
+        '.responsiveMatrixCell.repeatScaleHeaders .scaleHeaderContainer'
+      )[0].hide();
+    }
+  },
 };
