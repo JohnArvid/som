@@ -323,6 +323,10 @@ body.noItemStriping .tableFormat1.noPaddingTop {
 .extraPaddingLastAlt .cellMatrixAnsweralternatives:last-of-type {
   padding-left: 3em;
 }
+/* Extra padding sista alternativet - Ingen uppfattning el dyl*/
+.extraExtraPaddingLastAlt .cellMatrixAnsweralternatives:last-of-type {
+  padding-left: 5em;
+}
 
 /* Ta bort padding bottom med klassen noPaddingBottom */
 body.noItemStriping .tableFormat1.noPaddingBottom {
@@ -365,8 +369,17 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
   display: flex;
 }
 
-.flyttaNerAlternativ .tableFormatMatrix  {
+.flyttaNerAlternativ .tableFormatMatrix {
   margin-top: 1em;
+}
+.f74b .header {
+  font-size: 1.2em;
+}
+
+.repeatScaleHeaders .cellMatrixAnsweralternativesHeaderLeft,
+.repeatScaleHeaders .cellMatrixAnsweralternativesHeaderRight {
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /****************************
@@ -495,5 +508,8 @@ body.noItemStriping .tableFormat1.noPaddingBottom {
   /* Mindre avstånd till fritextrutan */
   .flyttaUppFritextRuta .cellAnsweralternatives.openAnswerRight {
     padding-top: 0 !important;
+  }
+  .languageSelection .horizontalButtons.ui-buttonset {
+    flex-wrap: nowrap;
   }
 }
